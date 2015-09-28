@@ -1,0 +1,48 @@
+// Mixins
+@mixin border-radius($radius: 3px, $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-border-radius:    $radius; }
+  @if $webkit { -webkit-border-radius: $radius; }
+  @if $ms     { -ms-border-radius:     $radius; }
+  @if $ope     { -o-border-radius:     $radius; }
+  border-radius: $radius;
+}
+
+@mixin transition($transition: all 0.2s ease-in-out, $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-transition:    $transition; }
+  @if $webkit { -webkit-transition: $transition; }
+  @if $ms     { -ms-transition:     $transition; }
+  @if $ope     { -o-transition:     $transition; }
+  transition: $transition;
+}
+
+@mixin Headertransition($Headertransition: height 0.3s, $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-transition:    $Headertransition; }
+  @if $webkit { -webkit-transition: $Headertransition; }
+  @if $ms     { -ms-transition:     $Headertransition; }
+  @if $ope     { -o-transition:     $Headertransition; }
+  transition: $Headertransition;
+}
+
+@mixin transform($transform: translate3d(0, 0, 0) !important, $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-transform:    $transform; }
+  @if $webkit { -webkit-transform: $transform; }
+  @if $ms     { -ms-transform:     $transform; }
+  @if $ope     { -o-transform:     $transform; }
+  transform: $transform;
+}
+
+@mixin animation($animation: pace-theme-center-atom-spin 2s linear infinite, $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-animation:    $animation; }
+  @if $webkit { -webkit-animation: $animation; }
+  @if $ms     { -ms-animation:     $animation; }
+  @if $ope     {  -o-animation:    $animation; }
+  animation: $animation;
+}
+
+@mixin transformRotate($transformRotate:rotate(120deg), $moz: true, $webkit: true, $ms: true, $ope: true) {
+  @if $moz    { -moz-transform:    $transformRotate; }
+  @if $webkit { -webkit-transform: $transformRotate; }
+  @if $ms     { -ms-transform:     $transformRotate; }
+  @if $ope     {  -o-transform:    $transformRotate; }
+  transform: $transformRotate;
+}
