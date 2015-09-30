@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <title>Explore your archive | The National Archives</title>
+    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
 
     <meta charset="UTF-8">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+    <!-- Stylesheet -->
+    <link href="<?php echo get_template_directory_uri(); ?>/css/style.min.css" rel="stylesheet">
     <!-- Development -->
     <?php
 
-        wp_head();
-        $options=get_option('logo_options_group') ;
+    wp_head();
+    $options = get_option('logo_options_group');
 
     ?>
 </head>

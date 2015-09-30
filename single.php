@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb">
 <head>
-    <title>Explore your archive</title>
+    <title><?php the_title(); ?> <?php bloginfo('description'); ?></title>
 
     <meta charset="UTF-8">
-
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <!-- Global style-->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- Select style-->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"/>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <!-- Fa Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Loader -->
-    <script src="js/loader.js"></script>
+    <meta name="description" content="<?php the_content(); ?>">
 
     <!-- Share this -->
     <script type="text/javascript">var switchTo5x = true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({
-        publisher: "3256c013-0a0d-4579-834c-f9b43de0507f",
-        onhover: false,
-        doNotHash: false,
-        doNotCopy: false,
-        hashAddressBar: false
-    });</script>
+            publisher: "3256c013-0a0d-4579-834c-f9b43de0507f",
+            onhover: false,
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });</script>
+
+    <!-- Development -->
+    <?php
+    wp_head();
+    ?>
 
 </head>
-<main role="main">
-<div class="loading-page"></div>
+<body>
 <section id="event">
     <div class="container">
         <div class="row">
@@ -49,7 +40,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <img src="../images/event-img.jpg" alt="event image">
+                <?php if (has_post_thumbnail()) : ?>
+                    <?php echo the_post_thumbnail(); ?>
+                <?php else: ?>
+                    <img src="../images/event-img.jpg" alt="event image">
+                <?php endif; ?>
                 <ul>
                     <li><i class="fa fa-map-marker"></i>
                         <br/><span>London</span></li>
@@ -84,19 +79,15 @@
         </div>
     </div>
 </section>
-</main>
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!-- Drop Down Style -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
 
-<!-- Scrolling -->
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
+<?php wp_footer(); ?>
 
 
 </body>

@@ -10,7 +10,7 @@ if(is_admin()) {
 function add_custom_meta_box() {
     add_meta_box(
         'custom_meta_box', // $id
-        'Custom Meta Box', // $title
+        'Add event details', // $title
         'show_custom_meta_box', // $callback
         'page', // $page
         'normal', // $context
@@ -60,6 +60,11 @@ $custom_meta_fields = array(
         'label'=> 'Location',
         'desc'  => 'A description for the field.',
         'id'    => $prefix.'location',
+        'type'  => 'text'
+    ),array(
+        'label'=> 'Address',
+        'desc'  => 'A description for the field.',
+        'id'    => 'latlng',
         'type'  => 'text'
     ),
     array(
