@@ -1,8 +1,15 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        cssmin: {
+            target: {
+                files: {
+                    'css/style.min.css': ['css/style.css', 'css/select.css', 'css/bootstrap-3.3.5.css', 'css/bootstrap-theme-3.3.5.css', 'css/font-awesome.css']
+                }
+            }
+        },
         sass: {
             options: {
                 sourcemap: 'none'
@@ -16,7 +23,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: 'css/*.scss',
-                tasks: 'sass'
+                tasks: ['sass', 'cssmin']
             }
         },
         browserSync: {
@@ -41,9 +48,11 @@ module.exports = function(grunt) {
     // Watch files
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // Default task(s).
-    grunt.registerTask('default', ['sass','watch']);
-    grunt.registerTask('bSync', ['browserSync']);
+    // CSS min
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
+    // Default task(s).
+    grunt.registerTask('default', ['sass', 'watch']);
+    grunt.registerTask('bSync', ['browserSync']);
 
 };
