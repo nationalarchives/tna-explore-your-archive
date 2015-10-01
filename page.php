@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="<?php the_content(); ?>">
 
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCeHfiJ8a9-ALS5hk7FL2izlXYBe0iFQc4&sensor=false&extension=.js'></script>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/map.js"></script>
 
     <!-- Share this -->
@@ -26,9 +26,85 @@
     <?php
     wp_head();
     ?>
+    <style>
+        #map_canvas {
+            height:400px;
+            width:550px;
+        }
+        .gm-style-iw * {
+            display: block;
+            width: 100%;
+        }
+        .gm-style-iw h4, .gm-style-iw p {
+            margin: 0;
+            padding: 0;
+        }
+        .gm-style-iw a {
+            color: #4272db;
+        }
+        html,
+        body,
+        #map_canvas {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <!-- Development -->
+    <script>
+        var geocoder;
+        var map;
+        var address = "San Diego, CA";
+
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions = {
+                zoom: 8,
+                center: latlng,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                },
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            if (geocoder) {
+                geocoder.geocode({
+                    'address': address
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                            map.setCenter(results[0].geometry.location);
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: '<b>' + address + '</b>',
+                                size: new google.maps.Size(150, 50)
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: map,
+                                title: address
+                            });
+                            google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.open(map, marker);
+                            });
+
+                        } else {
+                            alert("No results found");
+                        }
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
 </head>
-<body onload="initialize()">
+<body>
 <section id="event">
     <div class="container">
         <div class="row">
@@ -71,38 +147,11 @@
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="iframe-respo">
-                    <?php if ( have_posts() ) : ?>
-                        <!-- WordPress has found matching posts -->
-                        <div style="display: none;">
-                            <?php $i = 1; ?>
-                            <?php while ( have_posts() ) : the_post(); ?>
-                                <?php if ( get_post_meta($post->ID, 'latlng', true) !== '' ) : ?>
-                                    <div id="item<?php echo $i; ?>">
-                                        <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-                                        <?php the_content(); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php $i++;	?>
-                            <?php endwhile; ?>
-                        </div>
-                        <script type="text/javascript">
-                            var locations = [
-                                <?php  $i = 1; while ( have_posts() ) : the_post(); ?>
-                                <?php if ( get_post_meta($post->ID, 'latlng', true) !== '' ) : ?>
-                                {
-                                    latlng : new google.maps.LatLng<?php echo get_post_meta($post->ID, 'latlng', true); ?>,
-                                    info : document.getElementById('item<?php echo $i; ?>')
-                                },
-                                <?php endif; ?>
-                                <?php $i++; endwhile; ?>
-                            ];
-                        </script>
-                        <div id="map" style="width: 100%; height: 100%;"></div>
 
-                    <?php else : ?>
-                        <!-- No matching posts, show an error -->
-                        <h1>Error 404 &mdash; Page not found.</h1>
-                    <?php endif; ?>
+
+                    <div id="map_canvas" ></div>
+
+
                 </div>
 
 

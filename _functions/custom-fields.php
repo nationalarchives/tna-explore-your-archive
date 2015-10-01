@@ -21,46 +21,51 @@ add_action('add_meta_boxes', 'add_custom_meta_box');
 // Field Array
 $prefix = 'custom_';
 $custom_meta_fields = array(
+//    array(
+//        'label'=> 'Select Region',
+//        'desc'  => 'Please select the region for the event. ',
+//        'id'    => $prefix.'select',
+//        'type'  => 'select',
+//        'options' => array (
+//            'south_east' => array (
+//                'label' => 'South East',
+//                'value' => 'south_east'
+//            ),
+//            'london' => array (
+//                'label' => 'London',
+//                'value' => 'london'
+//            ),
+//            'north_west' => array (
+//                'label' => 'North West',
+//                'value' => 'north_west'
+//            ),
+//            'east_of_england' => array (
+//                'label' => 'East of England',
+//                'value' => 'east_of_england'
+//            ),
+//            'west_midlands' => array (
+//                'label' => 'West Midlands',
+//                'value' => 'west_midlands'
+//            ),
+//            'south_west' => array (
+//                'label' => 'South West',
+//                'value' => 'south_west'
+//            ),
+//            'yorkshire_and_the_humber' => array (
+//                'label' => 'Yorkshire and the Humber',
+//                'value' => 'yorkshire_and_the_humber'
+//            ),'east_midlands' => array (
+//                'label' => 'East Midlands',
+//                'value' => 'east_midlands'
+//            )
+//        )
+//    ),
     array(
-        'label'=> 'Select Region',
-        'desc'  => 'Please select the region for the event. ',
-        'id'    => $prefix.'select',
-        'type'  => 'select',
-        'options' => array (
-            'south_east' => array (
-                'label' => 'South East',
-                'value' => 'south_east'
-            ),
-            'london' => array (
-                'label' => 'London',
-                'value' => 'london'
-            ),
-            'north_west' => array (
-                'label' => 'North West',
-                'value' => 'north_west'
-            ),
-            'east_of_england' => array (
-                'label' => 'East of England',
-                'value' => 'east_of_england'
-            ),
-            'west_midlands' => array (
-                'label' => 'West Midlands',
-                'value' => 'west_midlands'
-            ),
-            'south_west' => array (
-                'label' => 'South West',
-                'value' => 'south_west'
-            ),
-            'yorkshire_and_the_humber' => array (
-                'label' => 'Yorkshire and the Humber',
-                'value' => 'yorkshire_and_the_humber'
-            ),'east_midlands' => array (
-                'label' => 'East Midlands',
-                'value' => 'east_midlands'
-            )
-        )
-    ),
-    array(
+        'label'=> 'Type the region',
+        'desc'  => 'e.g. East Midlands, London, South East England etc',
+        'id'    => $prefix.'region',
+        'type'  => 'text'
+    ),array(
         'label'=> 'Event time',
         'desc'  => 'Event time format is e.g. 18:00 - 21:00',
         'id'    => $prefix.'time',
