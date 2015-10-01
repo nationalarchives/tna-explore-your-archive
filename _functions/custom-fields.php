@@ -23,90 +23,83 @@ $prefix = 'custom_';
 $custom_meta_fields = array(
     array(
         'label'=> 'Select Region',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'Please select the region for the event. ',
         'id'    => $prefix.'select',
         'type'  => 'select',
         'options' => array (
-            'one' => array (
-                'label' => 'Region One',
-                'value' => 'one'
+            'south_east' => array (
+                'label' => 'South East',
+                'value' => 'south_east'
             ),
-            'two' => array (
-                'label' => 'Region Two',
-                'value' => 'two'
+            'london' => array (
+                'label' => 'London',
+                'value' => 'london'
             ),
-            'three' => array (
-                'label' => 'Region Three',
-                'value' => 'three'
+            'north_west' => array (
+                'label' => 'North West',
+                'value' => 'north_west'
+            ),
+            'east_of_england' => array (
+                'label' => 'East of England',
+                'value' => 'east_of_england'
+            ),
+            'west_midlands' => array (
+                'label' => 'West Midlands',
+                'value' => 'west_midlands'
+            ),
+            'south_west' => array (
+                'label' => 'South West',
+                'value' => 'south_west'
+            ),
+            'yorkshire_and_the_humber' => array (
+                'label' => 'Yorkshire and the Humber',
+                'value' => 'yorkshire_and_the_humber'
+            ),'east_midlands' => array (
+                'label' => 'East Midlands',
+                'value' => 'east_midlands'
             )
         )
     ),
     array(
         'label'=> 'Event time',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'Event time format is e.g. 18:00 - 21:00',
         'id'    => $prefix.'time',
         'type'  => 'text'
     ),array(
-        'label'=> 'Fee',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'fee',
+        'label'=> 'Entry price',
+        'desc'  => 'e.g. £5 or FREE',
+        'id'    => $prefix.'entry_price',
         'type'  => 'text'
     ),array(
         'label'=> 'Website URL',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'The URL of their website starting with http://',
         'id'    => $prefix.'web_url',
         'type'  => 'text'
     ),array(
         'label'=> 'Location',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'The location for the event.',
         'id'    => $prefix.'location',
         'type'  => 'text'
     ),array(
         'label'=> 'Address',
-        'desc'  => 'A description for the field.',
-        'id'    => 'latlng',
+        'desc'  => 'Fill in the full address.',
+        'id'    => $prefix.'latlng',
         'type'  => 'text'
-    ),
-    array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_1',
+    ),array(
+        'label' => 'Start date',
+        'desc'  => 'Fill in the start date.',
+        'id'    => $prefix.'start_date',
         'type'  => 'date'
     ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_2',
+        'label' => 'End date',
+        'desc'  => 'Fill in the end date.',
+        'id'    => $prefix.'end_date',
         'type'  => 'date'
     ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_3',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_4',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_5',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_6',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_7',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_8',
-        'type'  => 'date'
+        'label'=> 'Featured',
+        'desc'  => 'For featured events please check this box.',
+        'id'    => $prefix.'checkbox',
+        'type'  => 'checkbox'
     )
 );
 
@@ -144,6 +137,11 @@ function show_custom_meta_box() {
             case 'date':
                 echo '<input type="text" class="datepicker" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="30" />
 			<br /><span class="description">'.$field['desc'].'</span>';
+                break;
+            // checkbox
+            case 'checkbox':
+                echo '<input type="checkbox" name="'.$field['id'].'" id="'.$field['id'].'" ',$meta ? ' checked="checked"' : '','/>
+        <label for="'.$field['id'].'">'.$field['desc'].'</label>';
                 break;
         } //end switch
         echo '</td></tr>';
