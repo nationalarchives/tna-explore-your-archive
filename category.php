@@ -14,34 +14,34 @@ get_header();
 
                 <form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 
-                        <?php
-                        $args = array(
-                            'show_option_none' => __( 'Region' ),
-                            'show_count'       => 1,
-                            'orderby'          => 'name',
-                            'echo'             => 0,
-                            'hide_empty' => 1,
-                            'exclude' => 3,
-                            'selected' => 0,
-                            'tab_index' => 0,
-                            'hide_if_empty' => false,
-                            'option_none_value' => -1,
+                    <?php
+                    $args = array(
+                        'show_option_none' => __( 'Region' ),
+                        'show_count'       => 1,
+                        'orderby'          => 'name',
+                        'echo'             => 0,
+                        'hide_empty' => 1,
+                        'exclude' => 3,
+                        'selected' => 0,
+                        'tab_index' => 0,
+                        'hide_if_empty' => false,
+                        'option_none_value' => -1,
 
-                        );
+                    );
 
 
 
-                        ?>
+                    ?>
 
-                        <?php $select  = wp_dropdown_categories( $args ); ?>
-                        <?php $replace = "<fieldset><legend>Select</legend><select class='chosen-select'$1 onchange='return this.form.submit()'></fieldset>"; ?>
-                        <?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
+                    <?php $select  = wp_dropdown_categories( $args ); ?>
+                    <?php $replace = "<fieldset><legend>Select</legend><select class='chosen-select'$1 onchange='return this.form.submit()'></fieldset>"; ?>
+                    <?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
 
-                        <?php echo $select; ?>
+                    <?php echo $select; ?>
 
-                        <noscript>
-                            <input type="submit" value="View" />
-                        </noscript>
+                    <noscript>
+                        <input type="submit" value="View" />
+                    </noscript>
 
                 </form>
 
@@ -76,31 +76,10 @@ get_header();
                 <h2><?php echo get_option('eya_headline_section_one'); ?></h2>
                 <hr/>
                 <?php
-                $page_id = get_the_ID();
-                $current_date = date('d/m/Y');
-                $start_date = get_post_meta($post->ID, 'custom_start_date', true);
-                $end_date = get_post_meta($post->ID, 'custom_end_date', true);
-
-                if (get_query_var('page')) $paged = get_query_var('page');
-
-                // WP_Query arguments
-                $args = array(
-                    'post_type' => 'post',
-                    'meta_key' => 'custom_end_date',
-                    'meta_value' => $current_date,
-                    'meta_compare' => '>=',
-                    'orderby' => array(
-                        'meta_key' => 'custom_checkbox'
-                    )
-                );
-                // The Query
-                $query = new WP_Query($args);
-
-
                 // The Loop
-                if ($query->have_posts()) {
-                    while ($query->have_posts()) {
-                        $query->the_post();
+                if (have_posts()) {
+                    while (have_posts()) {
+                        the_post();
                         $page_id = get_the_ID();
                         $current_date = date('d/m/Y');
                         $start_date = get_post_meta($post->ID, 'custom_start_date', true);
@@ -126,7 +105,7 @@ get_header();
                                     <div class="caption">
                                         <h3><?php the_title(); ?></h3>
 
-                                        <p><i class="fa fa-map-marker"></i> <?php the_category(); ?></p>
+                                        <p><i class="fa fa-map-marker"></i> <?php echo $region; ?></p>
 
                                         <p><i class="fa fa-clock-o"></i> <?php echo $time ?></p>
 

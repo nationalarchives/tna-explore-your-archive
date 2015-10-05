@@ -1,6 +1,6 @@
 /* EYA - Imports */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,300italic,300,800italic);
-html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe, .iframe-respo #map_canvas,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -616,7 +616,7 @@ footer {
     @media (max-width: 600px) {
       #event img {
         width: 100%; } }
-  #event iframe {
+  #event iframe, #event .iframe-respo #map_canvas, .iframe-respo #event #map_canvas {
     float: right;
     position: absolute;
     top: 0;
@@ -624,7 +624,7 @@ footer {
     width: 100% !important;
     height: 100% !important; }
     @media (max-width: 988px) {
-      #event iframe {
+      #event iframe, #event .iframe-respo #map_canvas, .iframe-respo #event #map_canvas {
         margin: 20px 0 0 0; } }
   #event ul li {
     display: inline-block;
@@ -707,7 +707,7 @@ footer {
   height: 0;
   overflow: hidden;
   margin: 0 0 20px 0; }
-  .iframe-respo iframe {
+  .iframe-respo iframe, .iframe-respo #map_canvas {
     position: absolute;
     top: 0;
     left: 0;

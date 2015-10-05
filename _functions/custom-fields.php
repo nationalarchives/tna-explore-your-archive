@@ -12,7 +12,7 @@ function add_custom_meta_box() {
         'custom_meta_box', // $id
         'Add event details', // $title
         'show_custom_meta_box', // $callback
-        'page', // $page
+        'post', // $page
         'normal', // $context
         'high'); // $priority
 }
@@ -29,43 +29,44 @@ $custom_meta_fields = array(
 //        'options' => array (
 //            'south_east' => array (
 //                'label' => 'South East',
-//                'value' => 'south_east'
+//                'value' => 'South East'
 //            ),
 //            'london' => array (
 //                'label' => 'London',
-//                'value' => 'london'
+//                'value' => 'London'
 //            ),
 //            'north_west' => array (
 //                'label' => 'North West',
-//                'value' => 'north_west'
+//                'value' => 'North West'
 //            ),
 //            'east_of_england' => array (
 //                'label' => 'East of England',
-//                'value' => 'east_of_england'
+//                'value' => 'East of England'
 //            ),
 //            'west_midlands' => array (
 //                'label' => 'West Midlands',
-//                'value' => 'west_midlands'
+//                'value' => 'West Midlands'
 //            ),
 //            'south_west' => array (
 //                'label' => 'South West',
-//                'value' => 'south_west'
+//                'value' => 'South West'
 //            ),
 //            'yorkshire_and_the_humber' => array (
 //                'label' => 'Yorkshire and the Humber',
-//                'value' => 'yorkshire_and_the_humber'
+//                'value' => 'Yorkshire and the Humber'
 //            ),'east_midlands' => array (
 //                'label' => 'East Midlands',
-//                'value' => 'east_midlands'
+//                'value' => 'East Midlands'
 //            )
 //        )
 //    ),
+//    array(
+//        'label'=> 'Type the region',
+//        'desc'  => 'e.g. East Midlands, London, South East England etc',
+//        'id'    => $prefix.'region',
+//        'type'  => 'text'
+//    ),
     array(
-        'label'=> 'Type the region',
-        'desc'  => 'e.g. East Midlands, London, South East England etc',
-        'id'    => $prefix.'region',
-        'type'  => 'text'
-    ),array(
         'label'=> 'Event time',
         'desc'  => 'Event time format is e.g. 18:00 - 21:00',
         'id'    => $prefix.'time',
@@ -79,11 +80,6 @@ $custom_meta_fields = array(
         'label'=> 'Website URL',
         'desc'  => 'The URL of their website starting with http://',
         'id'    => $prefix.'web_url',
-        'type'  => 'text'
-    ),array(
-        'label'=> 'Location',
-        'desc'  => 'The location for the event.',
-        'id'    => $prefix.'location',
         'type'  => 'text'
     ),array(
         'label'=> 'Address',
@@ -183,7 +179,7 @@ function save_custom_meta($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
         return $post_id;
     // check permissions
-    if ('page' == $_POST['post_type']) {
+    if ('post' == $_POST['post_type']) {
         if (!current_user_can('edit_page', $post_id))
             return $post_id;
     } elseif (!current_user_can('edit_post', $post_id)) {

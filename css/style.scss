@@ -730,4 +730,7 @@ footer {
     width: 100% !important;
     height: 100% !important;
   }
+  #map_canvas {
+    @extend iframe;
+  }
 }
