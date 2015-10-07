@@ -285,7 +285,7 @@ header {
       .chosen-select{
         width:200px;
         @media (max-width:$EYA-600px-width){
-          width:300px;
+          width:300px !important;
         }
       }
       .select2-container {
@@ -358,15 +358,21 @@ header {
     line-height:14px;
   }
   .thumbnail{
+    min-height:125.318px;
     padding:0;
     background-image:$EYA-colours-stripe;
     background-position: bottom;
     background-repeat:repeat-x;
     background-size: 100% 3%;
-    transition:$EYA-transition;
-    -webkit-transition:$EYA-transition;
-    -moz-transition:$EYA-transition;
-    -o-transition:$EYA-transition;
+    @include transition();
+    .wp-post-image{
+      height:125px;
+      width:100%;
+      border-bottom:1px solid lightgrey;
+      @media (max-width:767px){
+        height:auto;
+      }
+    }
     &:hover{
       background-size: 100% 5%;
       text-decoration:none;
@@ -386,13 +392,13 @@ header {
     color:$EYA-white;
     display:block;
     @media (max-width:$EYA-1024px-width){
-      top:67px;
+      top:89px;
     }
     @media (max-width:$EYA-800px-width){
       top:132px;
     }
     @media (max-width:$EYA-768px-width){
-      top:125px;
+      top:89px;
     }
     @media (width:$EYA-736px-width){
       top:253px;
@@ -401,10 +407,10 @@ header {
       top:218px;
     }
     @media (width:$EYA-640px-width){
-      top:238px;
+      top:231px;
     }
     @media (min-width:641px)and(max-width:$EYA-667px-width){
-      top:250px;
+      top:244px;
     }
     @media (width:$EYA-568px-width){
       top:203px;
@@ -413,10 +419,10 @@ header {
       top:160px;
     }
     @media (width:$EYA-375px-width){
-      top:110px;
+      top:104px;
     }
     @media (width:$EYA-360px-width){
-      top:103px;
+      top:97px;
     }
     @media (max-width:$EYA-320px-width){
       top:83px;
@@ -431,10 +437,23 @@ header {
     z-index:10;
     color:$EYA-white;
     font-size:0.750em;
+    text-transform: uppercase;
   }
 }
 #latest-news{
+  .col-xs-6 {
+    @media (max-width:766px){
+      width:100%;
+    }
+  }
   background-color:$EYA-light-grey;
+  .facebook {
+    width:100%;
+    margin:20px 0 0 0;
+  }
+  .timeline {
+    max-width:100%;
+  }
   a {
     &:hover {
       text-decoration:none;
@@ -456,6 +475,24 @@ header {
     height:2px;
     border-color: #cecece;
     padding:0 0 20px 0;
+  }
+  .thumbnail {
+    .wp-post-image{
+      height:166px;
+      width:100%;
+      border-bottom:1px solid grey;
+      @media (max-width:767px){
+        height:auto;
+      }
+    }
+  }
+  .caption{
+    a {
+      color:$EYA-black;
+      &:hover {
+        color: $EYA-purple;
+      }
+    }
   }
 }
 #about {
@@ -489,6 +526,7 @@ header {
   }
 }
 #latest-activity {
+  color:$EYA-white;
   img {
     width:100%;
     height:280px;
@@ -583,6 +621,12 @@ footer {
   }
   p{
     text-align:center;
+    a {
+      color:$EYA-purple;
+      &:hover {
+        color:$EYA-pink;
+      }
+    }
   }
   ul {
     vertical-align: middle;
@@ -602,7 +646,26 @@ footer {
 
 #event {
   background:$EYA-purple $EYA-colours-stripe repeat-x top;
-  height:100%;
+  height:auto;
+  .wp-post-image {
+    border-bottom:1px solid lightgrey;
+  }
+  .not-found {
+    width:100%;
+    margin:0 auto;
+    color:$EYA-white;
+    display:block;
+    vertical-align:middle;
+    h1 {
+      font-size:15em;
+      text-align:center;
+    }
+    p,
+    h2{
+      text-align:center;
+      width:100%;
+    }
+  }
   @media  (max-width:$EYA-1024px-width){
     height:auto;
   }
@@ -620,11 +683,13 @@ footer {
   }
   img {
     width:100%;
+    height:289px;
     @media (max-width:$EYA-988px-width){
       width:99%;
     }
     @media (max-width:$EYA-600px-width){
       width:100%;
+      height:auto;
     }
   }
   iframe {
@@ -730,4 +795,24 @@ footer {
     width: 100% !important;
     height: 100% !important;
   }
+  #map_canvas {
+    @extend iframe;
+  }
 }
+
+.hidden-but-accessible {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  top: 0;
+  left: 0
+}
+.blank {
+  color:$EYA-white;
+}
+

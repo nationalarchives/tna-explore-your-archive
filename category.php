@@ -1,10 +1,10 @@
 <?php
-/**
- * Front Page
- * TNA Web Team
- */
+/** Front Page */
 
-get_header();
+    get_header();
+
+    //Variables
+    include('_inc/variables.php');
 ?>
     <section id="banner" role="banner">
         <div class="container">
@@ -25,12 +25,13 @@ get_header();
                         'orderby' => 'name',
                         'echo' => 0,
                         'hide_empty' => 1,
-                        'exclude' => array(3, 4, 1),
-                        'selected' => 0,
+                        'exclude' => array(3,4,1),
+                        'selected' => 1,
                         'tab_index' => 0,
                         'hide_if_empty' => false,
                         'option_none_value' => -1,
                     );
+
                     ?>
 
                     <?php $select = wp_dropdown_categories($args); ?>
@@ -51,30 +52,27 @@ get_header();
     <section id="events">
         <div class="container">
             <div class="row">
-                <h2><?php echo get_option('eya_headline_section_one'); ?></h2>
+                <h2>
+                    <?php
+                    foreach ((get_the_category()) as $category) { ?>
+                        <?php if ($category->cat_name != 'Featured') { ?>
+                            <?php echo 'Events in '. $category->cat_name . ' '; ?>
+                        <?php } ?>
+                    <?php } ?>
+                </h2>
                 <hr/>
                 <?php
-
-                include ('_inc/variables.php');
-                if (get_query_var('page')) $paged = get_query_var('page');
-
-                // WP_Query arguments
-                $args = array(
-                    'post_type' => 'post',
-                    'cat' => 4,
-                    'meta_key' => 'custom_end_date',
-                    'meta_value' => $current_date,
-                    'meta_compare' => '>=',
-                    'post_per_page' => -1
-                );
-
-                $query = new WP_Query($args);
-
                 // The Loop
-                if ($query->have_posts()) {
-                    while ($query->have_posts()) {
-                        $query->the_post();
-                        include('_inc/variables.php');
+                if (have_posts()) {
+                    while (have_posts()) {
+                        the_post();
+                        $page_id = get_the_ID();
+                        $current_date = date('d/m/Y');
+                        $start_date = get_post_meta($post->ID, 'custom_start_date', true);
+                        $end_date = get_post_meta($post->ID, 'custom_end_date', true);
+                        $time = get_post_meta($post->ID, 'custom_time', true);
+                        $region = get_post_meta($post->ID, 'custom_select', true);
+                        $date = new DateTime($start_date);
                         ?>
                         <div class="col-sm-6 col-md-3">
                             <a href="<?php the_permalink(); ?>">
@@ -84,89 +82,22 @@ get_header();
                                     <?php else: ?>
                                         <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
                                     <?php endif; ?>
-                                    <?php if (in_category(4)) : ?>
+                                    <?php $featured = get_post_meta($post->ID, "custom_checkbox", true);
+                                    if ($featured !== '') { ?>
                                         <span class="featured">FEATURED</span>
-                                    <?php endif; ?>
-                                    <span class="price"><?php echo $price ?></span>
+                                    <?php } ?>
+                                    <span class="price">FREE</span>
 
                                     <div class="caption">
-                                        <h3><?php the_title_limit(45, ' [..]'); ?></h3>
+                                        <h3><?php the_title_limit( 45, ' [..]'); ?></h3>
 
                                         <p><i class="fa fa-map-marker"></i>
-                                            <?php foreach ((get_the_category()) as $category) { ?>
-                                                <?php if ($category->cat_name != 'Featured') { ?>
-                                                    <?php echo $category->cat_name . ' '; ?>
-                                                <?php } ?>
-                                            <?php } ?>
-                                        </p>
-
-                                        <p><i class="fa fa-clock-o"></i> <?php echo $time ?></p>
-
-
-                                        <?php if ($format_start_date == $format_end_date) { ?>
-                                            <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('l d F Y'); ?>
-                                            </p>
-                                        <?php } else { ?>
-                                            <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('d') . ' - ' . $format_end_date->format('d F Y') ?>
-                                            </p>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php } ?>
-
-                <?php } else {
-
-                }
-                // Restore original Post Data
-                wp_reset_postdata();
-
-                ?>
-
-                <?php
-
-                $args2 = array(
-                    'post_type' => 'post',
-                    'cat' => -4, //Display all posts exclude this category.
-                    'meta_key' => 'custom_end_date',
-                    'meta_value' => $current_date,
-                    'meta_compare' => '>=',
-                    'post_per_page' => -1
-                );
-
-                $query = new WP_query($args2);
-
-                // The Loop
-                if ($query->have_posts()) {
-                    while ($query->have_posts()) {
-                        $query->the_post();
-                        include('_inc/variables.php');
-                        ?>
-                        <div class="col-sm-6 col-md-3">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="thumbnail">
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <?php echo the_post_thumbnail(); ?>
-                                    <?php else: ?>
-                                        <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
-                                    <?php endif; ?>
-                                    <?php if (in_category(2)) : ?>
-                                        <span class="featured">FEATURED</span>
-                                    <?php endif; ?>
-                                    <span class="price"><?php echo $price ?></span>
-
-                                    <div class="caption">
-                                        <h3><?php the_title_limit(45, ' [...]'); ?></h3>
-
-                                        <p><i class="fa fa-map-marker"></i>
-                                            <?php foreach ((get_the_category()) as $category) { ?>
-                                                <?php if ($category->cat_name != 'Featured') { ?>
-                                                    <?php echo $category->cat_name . ' '; ?>
-                                                <?php } ?>
-                                            <?php } ?>
+                                            <span><?php
+                                                foreach ((get_the_category()) as $category) { ?>
+                                                    <?php if ($category->cat_name != 'Featured') { ?>
+                                                        <?php echo $category->cat_name . ' '; ?>
+                                                    <?php } ?>
+                                                <?php } ?></span>
                                         </p>
 
                                         <p><i class="fa fa-clock-o"></i> <?php echo $time ?></p>
@@ -177,7 +108,7 @@ get_header();
                                             </p>
                                         <?php } else { ?>
                                             <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('d') . ' - ' . $format_end_date->format('d F Y') ?>
+                                                <?php echo $format_start_date->format('d') .' - ' . $format_end_date->format('d F Y') ?>
                                             </p>
                                         <?php } ?>
                                     </div>
@@ -191,6 +122,7 @@ get_header();
                 }
                 // Restore original Post Data
                 wp_reset_postdata();
+                wp_reset_query();
                 ?>
 
             </div>
@@ -204,7 +136,6 @@ get_header();
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-8">
                         <?php
-
                         // WP_Query arguments
                         $args = array(
                             'post_type' => array('news'),
@@ -235,11 +166,11 @@ get_header();
                                                     <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
                                                 <?php endif; ?>
                                                 <div class="caption">
-                                                    <h3><?php the_title(); ?></h3>
+                                                    <h3><?php the_title_limit( 55, ' [...]'); ?></h3>
                                                     <span><?php the_time('F jS, Y') ?>
                                                         by <?php the_author_posts_link() ?></span>
 
-                                                    <p><?php echo excerpt(25); ?> </p>
+                                                    <p><?php echo excerpt(25); ?></p>
 
                                                 </div>
                                             </div>
@@ -273,15 +204,7 @@ get_header();
 
                         </div>
                         <div class="facebook">
-                            <div class="fb-page" data-href="https://www.facebook.com/ExploreYourArchive2015"
-                                 data-small-header="true" data-adapt-container-width="true" data-hide-cover="false"
-                                 data-show-facepile="true" data-show-posts="true">
-                                <div class="fb-xfbml-parse-ignore">
-                                    <blockquote cite="https://www.facebook.com/ExploreYourArchive2015"><a
-                                            href="https://www.facebook.com/ExploreYourArchive2015">Explore Your Archive
-                                            2015</a></blockquote>
-                                </div>
-                            </div>
+                            <div class="fb-page" data-href="https://www.facebook.com/ExploreYourArchive2015" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ExploreYourArchive2015"><a href="https://www.facebook.com/ExploreYourArchive2015">Explore Your Archive 2015</a></blockquote></div></div>
                         </div>
                     </div>
                 </div>
@@ -321,8 +244,7 @@ get_header();
                     <?php endwhile; ?>
                     <!-- end of the loop -->
 
-                    <?php wp_reset_postdata();
-                    wp_reset_query(); ?>
+                    <?php wp_reset_postdata(); wp_reset_query(); ?>
 
                 <?php else : ?>
                     <p><?php _e('Sorry, no content'); ?></p>
@@ -362,8 +284,7 @@ get_header();
                     <?php endwhile; ?>
                     <!-- end of the loop -->
 
-                    <?php wp_reset_postdata();
-                    wp_reset_query(); ?>
+                    <?php wp_reset_postdata(); wp_reset_query(); ?>
 
                 <?php else : ?>
                     <p><?php _e('Sorry, no content'); ?></p>

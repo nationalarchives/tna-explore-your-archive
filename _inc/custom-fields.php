@@ -10,9 +10,9 @@ if(is_admin()) {
 function add_custom_meta_box() {
     add_meta_box(
         'custom_meta_box', // $id
-        'Custom Meta Box', // $title
+        'Add event details', // $title
         'show_custom_meta_box', // $callback
-        'page', // $page
+        'post', // $page
         'normal', // $context
         'high'); // $priority
 }
@@ -21,88 +21,87 @@ add_action('add_meta_boxes', 'add_custom_meta_box');
 // Field Array
 $prefix = 'custom_';
 $custom_meta_fields = array(
-    array(
-        'label'=> 'Select Region',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'select',
-        'type'  => 'select',
-        'options' => array (
-            'one' => array (
-                'label' => 'Region One',
-                'value' => 'one'
-            ),
-            'two' => array (
-                'label' => 'Region Two',
-                'value' => 'two'
-            ),
-            'three' => array (
-                'label' => 'Region Three',
-                'value' => 'three'
-            )
-        )
-    ),
+//    array(
+//        'label'=> 'Select Region',
+//        'desc'  => 'Please select the region for the event. ',
+//        'id'    => $prefix.'select',
+//        'type'  => 'select',
+//        'options' => array (
+//            'south_east' => array (
+//                'label' => 'South East',
+//                'value' => 'South East'
+//            ),
+//            'london' => array (
+//                'label' => 'London',
+//                'value' => 'London'
+//            ),
+//            'north_west' => array (
+//                'label' => 'North West',
+//                'value' => 'North West'
+//            ),
+//            'east_of_england' => array (
+//                'label' => 'East of England',
+//                'value' => 'East of England'
+//            ),
+//            'west_midlands' => array (
+//                'label' => 'West Midlands',
+//                'value' => 'West Midlands'
+//            ),
+//            'south_west' => array (
+//                'label' => 'South West',
+//                'value' => 'South West'
+//            ),
+//            'yorkshire_and_the_humber' => array (
+//                'label' => 'Yorkshire and the Humber',
+//                'value' => 'Yorkshire and the Humber'
+//            ),'east_midlands' => array (
+//                'label' => 'East Midlands',
+//                'value' => 'East Midlands'
+//            )
+//        )
+//    ),
+//    array(
+//        'label'=> 'Type the region',
+//        'desc'  => 'e.g. East Midlands, London, South East England etc',
+//        'id'    => $prefix.'region',
+//        'type'  => 'text'
+//    ),
     array(
         'label'=> 'Event time',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'Event time format is e.g. 18:00 - 21:00',
         'id'    => $prefix.'time',
         'type'  => 'text'
     ),array(
-        'label'=> 'Fee',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'fee',
+        'label'=> 'Entry price',
+        'desc'  => 'e.g. £5 or FREE',
+        'id'    => $prefix.'entry_price',
         'type'  => 'text'
     ),array(
         'label'=> 'Website URL',
-        'desc'  => 'A description for the field.',
+        'desc'  => 'The URL of their website starting with http://',
         'id'    => $prefix.'web_url',
         'type'  => 'text'
     ),array(
-        'label'=> 'Location',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'location',
+        'label'=> 'Address',
+        'desc'  => 'Fill in the full address.',
+        'id'    => $prefix.'latlng',
         'type'  => 'text'
-    ),
-    array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_1',
+    ),array(
+        'label' => 'Start date',
+        'desc'  => 'Fill in the start date.',
+        'id'    => $prefix.'start_date',
         'type'  => 'date'
     ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_2',
+        'label' => 'End date',
+        'desc'  => 'Fill in the end date.',
+        'id'    => $prefix.'end_date',
         'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_3',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_4',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_5',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_6',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_7',
-        'type'  => 'date'
-    ),array(
-        'label' => 'Date',
-        'desc'  => 'A description for the field.',
-        'id'    => $prefix.'date_8',
-        'type'  => 'date'
-    )
+    )/*,array(
+        'label'=> 'Featured',
+        'desc'  => 'For featured events please check this box.',
+        'id'    => $prefix.'checkbox',
+        'type'  => 'checkbox'
+    )*/
 );
 
 // The Callback
@@ -140,6 +139,11 @@ function show_custom_meta_box() {
                 echo '<input type="text" class="datepicker" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="30" />
 			<br /><span class="description">'.$field['desc'].'</span>';
                 break;
+            // checkbox
+            case 'checkbox':
+                echo '<input type="checkbox" name="'.$field['id'].'" id="'.$field['id'].'" ',$meta ? ' checked="checked"' : '','/>
+        <label for="'.$field['id'].'">'.$field['desc'].'</label>';
+                break;
         } //end switch
         echo '</td></tr>';
     } // end foreach
@@ -175,7 +179,7 @@ function save_custom_meta($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
         return $post_id;
     // check permissions
-    if ('page' == $_POST['post_type']) {
+    if ('post' == $_POST['post_type']) {
         if (!current_user_can('edit_page', $post_id))
             return $post_id;
     } elseif (!current_user_can('edit_post', $post_id)) {
