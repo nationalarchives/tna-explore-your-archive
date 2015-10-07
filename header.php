@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
+    <title><?php the_title(); ?> <?php bloginfo('description'); ?></title>
 
     <meta charset="UTF-8">
     <!-- Viewport -->
@@ -17,12 +17,20 @@
     ?>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-Top">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=179377418776342";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <main role="main">
     <header>
         <div class="container clearfix">
             <div class="row">
                 <div class="col-xs-6 col-md-4">
-                    <a class="page-scroll" href="#page-top"><img src="<?php echo $options['url']; ?>"
+                    <a class="page-scroll" href="/"><img src="<?php echo $options['url']; ?>"
                                                                  alt="Explore Your Archive"></a>
                 </div>
                 <a href="#eya" class="box-shadow-menu">
@@ -38,7 +46,7 @@
                         <ul class="nav">
                             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                             <li>
-                                <a class="page-scroll" href="#events">Tea and testimony</a>
+                                <a class="page-scroll" href="#events">Events</a>
                             </li>
                             <li>
                                 <a class="page-scroll" href="#latest-news">News</a>
@@ -61,7 +69,7 @@
                         <ul class="nav">
                             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                             <li>
-                                <a class="page-scroll" href="#events">Tea and testimony</a>
+                                <a class="page-scroll" href="#events">Events</a>
                             </li>
                             <li>
                                 <a class="page-scroll" href="#latest-news">News</a>

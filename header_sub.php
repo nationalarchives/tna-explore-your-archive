@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
-    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
+    <title><?php the_title(); ?> <?php bloginfo('description'); ?></title>
 
     <meta charset="UTF-8">
     <!-- Viewport -->
@@ -81,4 +81,4 @@
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </head>
-<body>
+<body style="background:#772367">

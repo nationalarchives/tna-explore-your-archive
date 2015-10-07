@@ -26,30 +26,30 @@ function create_events_cpt() {
         )
     );
 
-//    register_post_type( 'news',
-//        array(
-//            'public' => true,
-//            'hierachical' => true,
-//            'has_archive' => true,
-//            'menu_icon' => 'dashicons-welcome-widgets-menus',
-//            'supports' => array( 'title', 'news', 'page-attributes', 'custom-fields', 'thumbnail', 'editor'),
-//            'labels' => array(
-//                'name' => __( 'News' ),
-//                'singular_name' => __( 'News' ),
-//                'add_new' => __( 'Add News' ),
-//                'add_new_item' => __( 'Add News' ),
-//                'edit' => __( 'Edit' ),
-//                'edit_item' => __( 'Edit News' ),
-//                'new_item' => __( 'News' ),
-//                'view' => __( 'View News' ),
-//                'view_item' => __( 'View News' ),
-//                'search_items' => __( 'Search News' ),
-//                'not_found' => __( 'No News found' ),
-//                'not_found_in_trash' => __( 'No News found in Trash' ),
-//                'parent' => __( 'Parent News' ),
-//            ),
-//        )
-//    );
+    register_post_type( 'news',
+        array(
+            'public' => true,
+            'hierachical' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-welcome-widgets-menus',
+            'supports' => array( 'title', 'news', 'page-attributes', 'custom-fields', 'thumbnail', 'editor'),
+            'labels' => array(
+                'name' => __( 'News' ),
+                'singular_name' => __( 'News' ),
+                'add_new' => __( 'Add News' ),
+                'add_new_item' => __( 'Add News' ),
+                'edit' => __( 'Edit' ),
+                'edit_item' => __( 'Edit News' ),
+                'new_item' => __( 'News' ),
+                'view' => __( 'View News' ),
+                'view_item' => __( 'View News' ),
+                'search_items' => __( 'Search News' ),
+                'not_found' => __( 'No News found' ),
+                'not_found_in_trash' => __( 'No News found in Trash' ),
+                'parent' => __( 'Parent News' ),
+            ),
+        )
+    );
 }
 add_action( 'init', 'create_events_cpt' );
 

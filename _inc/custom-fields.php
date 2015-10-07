@@ -96,12 +96,12 @@ $custom_meta_fields = array(
         'desc'  => 'Fill in the end date.',
         'id'    => $prefix.'end_date',
         'type'  => 'date'
-    ),array(
+    )/*,array(
         'label'=> 'Featured',
         'desc'  => 'For featured events please check this box.',
         'id'    => $prefix.'checkbox',
         'type'  => 'checkbox'
-    )
+    )*/
 );
 
 // The Callback

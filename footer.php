@@ -6,7 +6,7 @@
                         src="<?php bloginfo('stylesheet_directory'); ?>/images/explore-your-archive-logo-tna.png" alt="The National Archives"></a>
             </div>
             <div class="col-xs-6 col-sm-6">
-                <p><?php echo get_option('footer_info'); ?></p>
+                <p><a href="<?php echo get_option('footer_link_one'); ?>" target="_blank"><?php echo get_option('footer_link_one_desc'); ?></a>, Contact us at <a href="mailto:exploreyourarchive@nationalarchives.gov.uk">exploreyourarchive@nationalarchives.gov.uk</a></p>
                     <!-- Footer Menu -->
                     <?php wp_nav_menu( array('menu' => 'Footer' )); ?>
                 <p><?php echo get_option('footer_copyright'); ?></p>

@@ -1,7 +1,10 @@
 <?php
 /** Front Page */
 
-get_header();
+    get_header();
+
+    //Variables
+    include('_inc/variables.php');
 ?>
     <section id="banner" role="banner">
         <div class="container">
@@ -12,60 +15,36 @@ get_header();
 
                 <p><?php echo get_option('eya_desc'); ?> <a class="page-scroll" href="#about">Read more</a></p>
 
-                <form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+                <form id="category-select" class="category-select" action="<?php echo esc_url(home_url('/')); ?>"
+                      method="get">
 
                     <?php
                     $args = array(
-                        'show_option_none' => __( 'Region' ),
-                        'show_count'       => 1,
-                        'orderby'          => 'name',
-                        'echo'             => 0,
+                        'show_option_none' => __('Region'),
+                        'show_count' => 1,
+                        'orderby' => 'name',
+                        'echo' => 0,
                         'hide_empty' => 1,
-                        'exclude' => 3,
-                        'selected' => 0,
+                        'exclude' => array(3,4,1),
+                        'selected' => 1,
                         'tab_index' => 0,
                         'hide_if_empty' => false,
                         'option_none_value' => -1,
-
                     );
-
-
 
                     ?>
 
-                    <?php $select  = wp_dropdown_categories( $args ); ?>
+                    <?php $select = wp_dropdown_categories($args); ?>
                     <?php $replace = "<fieldset><legend>Select</legend><select class='chosen-select'$1 onchange='return this.form.submit()'></fieldset>"; ?>
-                    <?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
+                    <?php $select = preg_replace('#<select([^>]*)>#', $replace, $select); ?>
 
                     <?php echo $select; ?>
 
                     <noscript>
-                        <input type="submit" value="View" />
+                        <button type="submit">Go</button>
                     </noscript>
 
                 </form>
-
-                <!--                                <form action="index.html" method="post">-->
-                <!--                                    <fieldset>-->
-                <!--                                        <legend>Find By</legend>-->
-                <!--                                        <select class="chosen-select">-->
-                <!--                                            <option value="--><?php //echo $region; ?><!--">-->
-                <?php //echo $region; ?><!--</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                        </select>-->
-                <!--                                    </fieldset>-->
-                <!--                                    <fieldset>-->
-                <!--                                        <select class="chosen-select">-->
-                <!--                                            <option value="London">Date</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                            <option value="London">London</option>-->
-                <!--                                        </select>-->
-                <!--                                    </fieldset>-->
-                <!--                                    <button type="submit">Go</button>-->
-                <!--                                </form>-->
             </div>
         </div>
     </section>
@@ -73,7 +52,14 @@ get_header();
     <section id="events">
         <div class="container">
             <div class="row">
-                <h2><?php echo get_option('eya_headline_section_one'); ?></h2>
+                <h2>
+                    <?php
+                    foreach ((get_the_category()) as $category) { ?>
+                        <?php if ($category->cat_name != 'Featured') { ?>
+                            <?php echo 'Events in '. $category->cat_name . ' '; ?>
+                        <?php } ?>
+                    <?php } ?>
+                </h2>
                 <hr/>
                 <?php
                 // The Loop
@@ -92,7 +78,7 @@ get_header();
                             <a href="<?php the_permalink(); ?>">
                                 <div class="thumbnail">
                                     <?php if (has_post_thumbnail()) : ?>
-                                        <?php echo the_post_thumbnail(); ?>
+                                        <?php echo the_post_thumbnail('events-thumb'); ?>
                                     <?php else: ?>
                                         <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
                                     <?php endif; ?>
@@ -103,14 +89,28 @@ get_header();
                                     <span class="price">FREE</span>
 
                                     <div class="caption">
-                                        <h3><?php the_title(); ?></h3>
+                                        <h3><?php the_title_limit( 45, ' [..]'); ?></h3>
 
-                                        <p><i class="fa fa-map-marker"></i> <?php echo $region; ?></p>
+                                        <p><i class="fa fa-map-marker"></i>
+                                            <span><?php
+                                                foreach ((get_the_category()) as $category) { ?>
+                                                    <?php if ($category->cat_name != 'Featured') { ?>
+                                                        <?php echo $category->cat_name . ' '; ?>
+                                                    <?php } ?>
+                                                <?php } ?></span>
+                                        </p>
 
                                         <p><i class="fa fa-clock-o"></i> <?php echo $time ?></p>
 
-                                        <p><i class="fa fa-calendar"></i> <?php echo $date->format('l jS \of F Y'); ?>
-                                        </p>
+                                        <?php if ($format_start_date == $format_end_date) { ?>
+                                            <p><i class="fa fa-calendar"></i>
+                                                <?php echo $format_start_date->format('l d F Y'); ?>
+                                            </p>
+                                        <?php } else { ?>
+                                            <p><i class="fa fa-calendar"></i>
+                                                <?php echo $format_start_date->format('d') .' - ' . $format_end_date->format('d F Y') ?>
+                                            </p>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </a>
@@ -138,7 +138,7 @@ get_header();
                         <?php
                         // WP_Query arguments
                         $args = array(
-                            'post_type' => array('post'),
+                            'post_type' => array('news'),
                             'posts_per_page' => '4',
                             'meta_query' => array(
                                 array(
@@ -161,16 +161,16 @@ get_header();
                                         <a href="<?php echo $news_field ?>" target="_blank">
                                             <div class="thumbnail">
                                                 <?php if (has_post_thumbnail()) : ?>
-                                                    <?php echo the_post_thumbnail(); ?>
+                                                    <?php echo the_post_thumbnail('news-thumb'); ?>
                                                 <?php else: ?>
                                                     <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
                                                 <?php endif; ?>
                                                 <div class="caption">
-                                                    <h3><?php the_title(); ?></h3>
+                                                    <h3><?php the_title_limit( 55, ' [...]'); ?></h3>
                                                     <span><?php the_time('F jS, Y') ?>
                                                         by <?php the_author_posts_link() ?></span>
 
-                                                    <p><?php the_content() ?> </p>
+                                                    <p><?php echo excerpt(25); ?></p>
 
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@ get_header();
                         <div align="center"><a class="twitter-timeline"
                                                href="https://twitter.com/search?q=%23explorearchives"
                                                data-widget-id="389751188226191361" data-link-color="#3c90d1"
-                                               width="100%" height="540px" data-show-replies="false">Tweets about
+                                               width="100%" height="450px" data-show-replies="false">Tweets about
                                 "#explorearchives"</a>
                             <script>!function (d, s, id) {
                                     var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -202,6 +202,9 @@ get_header();
                                     }
                                 }(document, "script", "twitter-wjs");</script>
 
+                        </div>
+                        <div class="facebook">
+                            <div class="fb-page" data-href="https://www.facebook.com/ExploreYourArchive2015" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ExploreYourArchive2015"><a href="https://www.facebook.com/ExploreYourArchive2015">Explore Your Archive 2015</a></blockquote></div></div>
                         </div>
                     </div>
                 </div>
@@ -289,7 +292,7 @@ get_header();
 
             </div>
             <div class="row">
-                <h2><?php echo get_option('eya_headline_section_four'); ?></h2>
+                <h2 class="hidden-but-accessible"><?php echo get_option('eya_headline_section_four'); ?></h2>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <ul>
