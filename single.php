@@ -47,7 +47,7 @@
                         <li><i class="fa fa-calendar"></i>
                             <br/>
                             <?php if ($format_start_date == $format_end_date) { ?>
-                                <span><?php echo $format_start_date->format('l d F Y'); ?> </span>
+                                <span><?php echo $format_start_date->format('d F Y'); ?> </span>
 
                             <?php } else { ?>
                                 <span><?php echo $format_start_date->format('d') .' - ' . $format_end_date->format('d F Y') ?></span>

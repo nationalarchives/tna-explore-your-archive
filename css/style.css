@@ -49,21 +49,22 @@ table {
 /* Includes */
 /* Media Query - Desktop */
 /* Media Query - If smaller than 1218px */
+/* Media Query - IPAD - Landscape */
 /* Media Query - If smaller than 988px */
-/* Media Query - If smaller than 988px */
-/* Media Query - If smaller than 988px */
+/* Media Query - Google Nexus - Portrait */
 /* Media Query - Portrait Tablet */
 /* Media Query - Portrait Tablet */
 /* Media Query - Iphone 6 - Landscape */
 /* Media Query - Samsung S4 - Landscape */
 /* Media Query - If <= than 568px */
 /* Media Query - If <= than 568px */
+/* Media Query - Nokia Lumia - Landscape */
 /* Media Query - If <= than 568px */
 /* Media Query - Old Iphone - Landscape */
 /* Media Query - Iphone 6S - Portrait*/
 /* Media Query - Iphone 6 - Portrait*/
 /* Media Query - Samsung S4 - Portrait*/
-/* Media Query - If <= than 568px */
+/* Media Query - Mobile - Portrait */
 /* EYA - Global */
 * {
   box-sizing: border-box;
@@ -239,7 +240,7 @@ header {
       padding: 0; } }
 
 #banner {
-  background: url("../images/banner.jpg");
+  background-image: url("../images/banner.jpg");
   background-size: cover;
   height: 414px;
   text-align: center;
@@ -251,7 +252,9 @@ header {
       padding: 0; } }
   @media (max-width: 768px) {
     #banner {
-      height: auto; } }
+      height: auto;
+      background-repeat: repeat-x;
+      background-color: #772367; } }
   #banner .wrapper {
     width: 700px;
     margin: 0 auto;
@@ -389,6 +392,9 @@ header {
     width: 85%;
     min-height: 41px;
     line-height: 20px; }
+    @media (max-width: 1024px) {
+      #events h3 {
+        display: block; } }
   #events a {
     text-decoration: none; }
     #events a:hover {
@@ -407,6 +413,13 @@ header {
     -ms-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
+    #events .thumbnail img {
+      height: 125px;
+      width: 100%;
+      border-bottom: 1px solid #d3d3d3; }
+      @media (max-width: 767px) {
+        #events .thumbnail img {
+          height: auto; } }
     #events .thumbnail .wp-post-image {
       height: 125px;
       width: 100%;
@@ -421,7 +434,7 @@ header {
     float: right;
     position: absolute;
     z-index: 200;
-    top: 90px;
+    top: 89px;
     right: 16px;
     background: #772367;
     border-radius: 9px 0 0 0;
@@ -433,10 +446,10 @@ header {
     @media (max-width: 1024px) {
       #events .featured {
         top: 89px; } }
-    @media (max-width: 800px) {
+    @media (min-width: 769px) and (max-width: 800px) {
       #events .featured {
-        top: 132px; } }
-    @media (max-width: 768px) {
+        top: 90px; } }
+    @media (min-width: 737px) and (max-width: 768px) {
       #events .featured {
         top: 89px; } }
     @media (min-width: 668px) and (max-width: 736px) {
@@ -447,13 +460,16 @@ header {
         top: 244px; } }
     @media (min-width: 601px) and (max-width: 640px) {
       #events .featured {
-        top: 218px; } }
+        top: 230px; } }
     @media (min-width: 569px) and (max-width: 600px) {
       #events .featured {
         top: 210px; } }
     @media (min-width: 481px) and (max-width: 568px) {
       #events .featured {
         top: 197px; } }
+    @media (max-width: 533px) {
+      #events .featured {
+        top: 179px; } }
     @media (min-width: 415px) and (max-width: 480px) {
       #events .featured {
         top: 154px; } }
@@ -482,6 +498,9 @@ header {
 
 #latest-news {
   background-color: #F7F7F7; }
+  @media (max-width: 988px) {
+    #latest-news .col-md-6 {
+      width: 100%; } }
   @media (max-width: 766px) {
     #latest-news .col-xs-6 {
       width: 100%; } }
@@ -523,7 +542,7 @@ header {
   #about .aboutImg {
     float: right;
     margin-top: -40px; }
-    @media (max-width: 667px) {
+    @media (max-width: 800px) {
       #about .aboutImg {
         margin: 0;
         float: none; } }
@@ -709,7 +728,8 @@ footer {
       #event ul li {
         width: 100%;
         display: block;
-        min-height: auto;
+        min-height: 100%;
+        height: auto;
         border-bottom: 1px solid #772367; } }
     #event ul li:nth-child(4) {
       margin: 0;
@@ -791,8 +811,13 @@ footer {
 
 @media (max-width: 667px) {
   .fb-page {
-    margin-left: 16px; } }
+    margin-left: 14px; } }
 
+@media (max-width: 768px) {
+  #twitter-widget-0 {
+    width: 94% !important;
+    float: left;
+    margin-bottom: 20px !important; } }
 @media (max-width: 667px) {
   #twitter-widget-0 {
-    margin-left: 16px; } }
+    margin-left: 14px; } }

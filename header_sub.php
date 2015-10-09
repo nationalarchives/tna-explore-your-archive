@@ -118,5 +118,17 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-2827241-12', 'exploreyourarchives.org');
+        ga('send', 'pageview');
+
+    </script>
 </head>
 <body style="background:#772367">

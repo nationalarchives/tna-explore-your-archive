@@ -99,7 +99,7 @@ get_header();
                                     <span class="price"><?php echo $price ?></span>
 
                                     <div class="caption">
-                                        <h3><?php the_title_limit(45, ' [..]'); ?></h3>
+                                        <h3><?php the_title_limit(35, ' [..]'); ?></h3>
 
                                         <p><i class="fa fa-map-marker"></i>
                                             <?php foreach ((get_the_category()) as $category) { ?>
@@ -114,7 +114,7 @@ get_header();
 
                                         <?php if ($format_start_date == $format_end_date) { ?>
                                             <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('l d F Y'); ?>
+                                                <?php echo $format_start_date->format('d F Y'); ?>
                                             </p>
                                         <?php } else { ?>
                                             <p><i class="fa fa-calendar"></i>
@@ -168,7 +168,7 @@ get_header();
                                     <span class="price"><?php echo $price ?></span>
 
                                     <div class="caption">
-                                        <h3><?php the_title_limit(45, ' [...]'); ?></h3>
+                                        <h3><?php the_title_limit(35, ' [...]'); ?></h3>
 
                                         <p><i class="fa fa-map-marker"></i>
                                             <?php foreach ((get_the_category()) as $category) { ?>
@@ -182,7 +182,7 @@ get_header();
 
                                         <?php if ($format_start_date == $format_end_date) { ?>
                                             <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('l d F Y'); ?>
+                                                <?php echo $format_start_date->format('d F Y'); ?>
                                             </p>
                                         <?php } else { ?>
                                             <p><i class="fa fa-calendar"></i>
