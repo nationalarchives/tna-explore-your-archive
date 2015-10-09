@@ -181,7 +181,7 @@ header {
 }
 
 #banner{
-    background:url('../images/banner.jpg');
+    background-image:url('../images/banner.jpg');
     background-size:cover;
     height:414px;
     text-align:center;
@@ -195,6 +195,8 @@ header {
     }
     @media (max-width:$EYA-768px-width){
       height:auto;
+      background-repeat:repeat-x;
+      background-color:$EYA-purple;
     }
     .wrapper {
       width:700px;
@@ -347,6 +349,9 @@ header {
     width:85%;
     min-height:41px;
     line-height:20px;
+    @media (max-width: $EYA-1024px-width) {
+      display: block;
+    }
   }
   a{
     text-decoration:none;
@@ -364,6 +369,14 @@ header {
     background-position: bottom;
     background-repeat:repeat-x;
     background-size: 100% 3%;
+    img {
+      height: 125px;
+      width: 100%;
+      border-bottom: 1px solid #d3d3d3;
+      @media (max-width:767px){
+        height:auto;
+      }
+    }
     @include transition();
     .wp-post-image{
       height:125px;
@@ -382,7 +395,7 @@ header {
     float:right;
     position:absolute;
     z-index:200;
-    top:90px;
+    top:89px;
     right:16px;
     background:$EYA-purple;
     border-radius:9px 0 0 0;
@@ -394,38 +407,44 @@ header {
     @media (max-width:$EYA-1024px-width){
       top:89px;
     }
-    @media (max-width:$EYA-800px-width){
-      top:132px;
+    @media (min-width:769px) and (max-width:$EYA-800px-width){
+      top:90px;
     }
-    @media (max-width:$EYA-768px-width){
+    @media (min-width:737px) and (max-width:$EYA-768px-width){
       top:89px;
     }
-    @media (width:$EYA-736px-width){
-      top:253px;
+    @media (min-width:668px) and (max-width:$EYA-736px-width){
+      top:278px;
     }
-    @media (width:$EYA-600px-width){
-      top:218px;
-    }
-    @media (width:$EYA-640px-width){
-      top:231px;
-    }
-    @media (min-width:641px)and(max-width:$EYA-667px-width){
+    @media (min-width:641px) and (max-width:$EYA-667px-width){
       top:244px;
     }
-    @media (width:$EYA-568px-width){
-      top:203px;
+    @media (min-width:601px) and (max-width:$EYA-640px-width){
+      top:230px;
     }
-    @media (width:$EYA-480px-width){
-      top:160px;
+    @media (min-width:569px) and (max-width:$EYA-600px-width){
+      top:210px;
     }
-    @media (width:$EYA-375px-width){
+    @media (min-width:481px) and (max-width:$EYA-568px-width){
+      top:197px;
+    }
+    @media (max-width:$EYA-533px-width){
+      top:179px;
+    }
+    @media (min-width:415px) and (max-width:$EYA-480px-width){
+      top:154px;
+    }
+    @media (min-width:378px) and (max-width:$EYA-414px-width){
+      top:123px;
+    }
+    @media (min-width:261px) and (max-width:$EYA-375px-width){
       top:104px;
     }
-    @media (width:$EYA-360px-width){
+    @media (min-width:321px) and (max-width:$EYA-360px-width){
       top:97px;
     }
-    @media (max-width:$EYA-320px-width){
-      top:83px;
+    @media (min-width:260px) and (max-width:$EYA-320px-width){
+      top:77px;
     }
   }
   .price {
@@ -441,11 +460,17 @@ header {
   }
 }
 #latest-news{
+  .col-md-6 {
+    @media (max-width:$EYA-988px-width){
+      width:100%;
+    }
+  }
   .col-xs-6 {
     @media (max-width:766px){
       width:100%;
     }
   }
+
   background-color:$EYA-light-grey;
   .facebook {
     width:100%;
@@ -483,6 +508,7 @@ header {
       border-bottom:1px solid grey;
       @media (max-width:767px){
         height:auto;
+
       }
     }
   }
@@ -500,10 +526,11 @@ header {
   .aboutImg {
     float:right;
     margin-top:-40px;
-    @media (max-width:$EYA-600px-width){
+    @media (max-width:$EYA-800px-width){
       margin:0;
       float:none;
     }
+
   }
   p{
     color:$EYA-white;
@@ -732,7 +759,8 @@ footer {
       @media (max-width:$EYA-519px-width){
         width:100%;
         display:block;
-        min-height:auto;
+        min-height:100%;
+        height:auto;
         border-bottom:1px solid $EYA-purple;
       }
       &:nth-child(4){
@@ -816,3 +844,24 @@ footer {
   color:$EYA-white;
 }
 
+.select2-selection__arrow {
+  @media (min-width:260px) and (max-width:$EYA-320px-width){
+    right:28px !important;
+  }
+}
+.fb-page {
+  @media (max-width:$EYA-667px-width) {
+    margin-left:14px;
+  }
+}
+#twitter-widget-0 {
+  @media (max-width:$EYA-768px-width) {
+    width:94% !important;
+    float:left;
+    margin-bottom:20px !important;
+  }
+
+  @media (max-width:$EYA-667px-width) {
+    margin-left:14px;
+  }
+}

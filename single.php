@@ -1,14 +1,14 @@
-<?php require_once('header_sub.php');
+<?php
+/**
+ * Front Page
+ * TNA Web Team
+ */
 
-    //Variables
-    $start_date = get_post_meta($post->ID, 'custom_start_date', true);
-    $end_date = get_post_meta($post->ID, 'custom_end_date', true);
-    $time = get_post_meta($post->ID, 'custom_time', true);
-    $region = get_post_meta($post->ID, 'custom_select', true);
-    $link = get_post_meta($post->ID, 'custom_web_url', true);
-    $price = get_post_meta($post->ID, 'custom_entry_price', true);
-    $format_start_date = new DateTime($start_date);
-    $format_end_date = new DateTime($end_date);
+    /* Header for the landing page */
+    require_once('header_sub.php');
+
+    /* Variables */
+    include('_inc/variables.php');
 ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <section id="event">
@@ -33,7 +33,7 @@
                     <?php if (has_post_thumbnail()) : ?>
                         <?php echo the_post_thumbnail(); ?>
                     <?php else: ?>
-                        <img class="aboutImg" src="http://placehold.it/600x289/f0f0f0f0/efefef?text=EYA">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                     <?php endif; ?>
                     <ul>
                         <li><i class="fa fa-map-marker"></i>
@@ -47,7 +47,7 @@
                         <li><i class="fa fa-calendar"></i>
                             <br/>
                             <?php if ($format_start_date == $format_end_date) { ?>
-                                <span><?php echo $format_start_date->format('l d F Y'); ?> </span>
+                                <span><?php echo $format_start_date->format('d F Y'); ?> </span>
 
                             <?php } else { ?>
                                 <span><?php echo $format_start_date->format('d') .' - ' . $format_end_date->format('d F Y') ?></span>
@@ -74,4 +74,8 @@
         </div>
     </section>
 <?php endwhile; endif; ?>
-<?php require_once('footer_sub.php'); ?>
+
+<?php
+    /* Footer for the landing page */
+    require_once('footer_sub.php');
+?>
