@@ -10,14 +10,14 @@ get_header();
     include('_inc/variables.php');
 
 
-    /* Enable fearture image for the banner */
+    /* Enable feature image for the banner */
     if ($banner_image_id) {
-        $banner_image_id = '4';
+        $banner_image_id = 4;
         $thumbnail = wp_get_attachment_image_src( $banner_image_id, 'post-thumbnail', false);
         if ($thumbnail) (string)$thumbnail = $thumbnail[0];
     }
 ?>
-    <section id="banner" role="banner">
+    <section id="banner" role="banner" style="background: url(<?php echo $thumbnail; ?> ) !important;">
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
