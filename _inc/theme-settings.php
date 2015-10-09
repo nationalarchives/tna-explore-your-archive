@@ -160,19 +160,19 @@ function display_eya_fields()
 
     <div class="row">
         <div class="col-xs-6 col-sm-2"><strong>Pinterest:</strong></div>
-        <div class="col-xs-6 col-sm-3"><input type="textar" name="pinterest_url" id="pinterest_url"
+        <div class="col-xs-6 col-sm-3"><input type="text" name="pinterest_url" id="pinterest_url"
                                               value="<?php echo get_option('pinterest_url'); ?>"/></div>
     </div>
 
     <div class="row">
         <div class="col-xs-6 col-sm-2"><strong>Footer Link:</strong></div>
-        <div class="col-xs-6 col-sm-3"><input type="textar" name="footer_link_one" id="footer_link_one"
+        <div class="col-xs-6 col-sm-3"><input type="text" name="footer_link_one" id="footer_link_one"
                                               value="<?php echo get_option('footer_link_one'); ?>"/></div>
 
     </div>
     <div class="row">
         <div class="col-xs-6 col-sm-2"><strong>Footer Link Description:</strong></div>
-        <div class="col-xs-6 col-sm-3"><input type="textar" name="footer_link_one_desc" id="footer_link_one_desc"
+        <div class="col-xs-6 col-sm-3"><input type="text" name="footer_link_one_desc" id="footer_link_one_desc"
                                               value="<?php echo get_option('footer_link_one_desc'); ?>"/></div>
     </div>
 

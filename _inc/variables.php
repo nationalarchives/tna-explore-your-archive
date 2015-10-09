@@ -16,5 +16,6 @@
     $format_start_date = new DateTime($start_date);
     $format_end_date = new DateTime($end_date);
     $banner_image_id = get_post_thumbnail_id($post_to_use->ID);
+    $link = get_post_meta($post->ID, 'custom_web_url', true);
 
 ?>
