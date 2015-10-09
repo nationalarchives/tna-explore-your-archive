@@ -1,10 +1,21 @@
 <?php
-/** Front Page */
+/**
+ * Category page
+ * TNA Web Team
+ */
 
-    get_header();
+get_header();
 
-    //Variables
+    //Include Variables
     include('_inc/variables.php');
+
+
+    /* Enable fearture image for the banner */
+    if ($banner_image_id) {
+        $banner_image_id = '4';
+        $thumbnail = wp_get_attachment_image_src( $banner_image_id, 'post-thumbnail', false);
+        if ($thumbnail) (string)$thumbnail = $thumbnail[0];
+    }
 ?>
     <section id="banner" role="banner">
         <div class="container">
@@ -25,7 +36,7 @@
                         'orderby' => 'name',
                         'echo' => 0,
                         'hide_empty' => 1,
-                        'exclude' => array(3,4,1),
+                        'exclude' => array(3, 4, 1),
                         'selected' => 1,
                         'tab_index' => 0,
                         'hide_if_empty' => false,
@@ -56,7 +67,7 @@
                     <?php
                     foreach ((get_the_category()) as $category) { ?>
                         <?php if ($category->cat_name != 'Featured') { ?>
-                            <?php echo 'Events in '. $category->cat_name . ' '; ?>
+                            <?php echo 'Events in ' . $category->cat_name . ' '; ?>
                         <?php } ?>
                     <?php } ?>
                 </h2>
@@ -80,7 +91,7 @@
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php echo the_post_thumbnail('events-thumb'); ?>
                                     <?php else: ?>
-                                        <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                                     <?php endif; ?>
                                     <?php $featured = get_post_meta($post->ID, "custom_checkbox", true);
                                     if ($featured !== '') { ?>
@@ -89,7 +100,7 @@
                                     <span class="price">FREE</span>
 
                                     <div class="caption">
-                                        <h3><?php the_title_limit( 45, ' [..]'); ?></h3>
+                                        <h3><?php the_title_limit(45, ' [..]'); ?></h3>
 
                                         <p><i class="fa fa-map-marker"></i>
                                             <span><?php
@@ -108,7 +119,7 @@
                                             </p>
                                         <?php } else { ?>
                                             <p><i class="fa fa-calendar"></i>
-                                                <?php echo $format_start_date->format('d') .' - ' . $format_end_date->format('d F Y') ?>
+                                                <?php echo $format_start_date->format('d') . ' - ' . $format_end_date->format('d F Y') ?>
                                             </p>
                                         <?php } ?>
                                     </div>
@@ -140,6 +151,7 @@
                         $args = array(
                             'post_type' => array('news'),
                             'posts_per_page' => '4',
+                            'orderby' => 'menu_order date',
                             'meta_query' => array(
                                 array(
                                     'key' => 'news',
@@ -163,10 +175,10 @@
                                                 <?php if (has_post_thumbnail()) : ?>
                                                     <?php echo the_post_thumbnail('news-thumb'); ?>
                                                 <?php else: ?>
-                                                    <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                                                 <?php endif; ?>
                                                 <div class="caption">
-                                                    <h3><?php the_title_limit( 55, ' [...]'); ?></h3>
+                                                    <h3><?php the_title_limit(55, ' [...]'); ?></h3>
                                                     <span><?php the_time('F jS, Y') ?>
                                                         by <?php the_author_posts_link() ?></span>
 
@@ -204,7 +216,15 @@
 
                         </div>
                         <div class="facebook">
-                            <div class="fb-page" data-href="https://www.facebook.com/ExploreYourArchive2015" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ExploreYourArchive2015"><a href="https://www.facebook.com/ExploreYourArchive2015">Explore Your Archive 2015</a></blockquote></div></div>
+                            <div class="fb-page" data-href="https://www.facebook.com/ExploreYourArchive2015"
+                                 data-small-header="true" data-adapt-container-width="true" data-hide-cover="false"
+                                 data-show-facepile="true" data-show-posts="true">
+                                <div class="fb-xfbml-parse-ignore">
+                                    <blockquote cite="https://www.facebook.com/ExploreYourArchive2015"><a
+                                            href="https://www.facebook.com/ExploreYourArchive2015">Explore Your Archive
+                                            2015</a></blockquote>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,13 +258,14 @@
                             <?php if (has_post_thumbnail()) : ?>
                                 <span class="aboutImg"><?php echo the_post_thumbnail(); ?></span>
                             <?php else: ?>
-                                <img class="aboutImg" src="http://placehold.it/345x266/f0f0f0f0/efefef?text=EYA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
                     <!-- end of the loop -->
 
-                    <?php wp_reset_postdata(); wp_reset_query(); ?>
+                    <?php wp_reset_postdata();
+                    wp_reset_query(); ?>
 
                 <?php else : ?>
                     <p><?php _e('Sorry, no content'); ?></p>
@@ -284,7 +305,8 @@
                     <?php endwhile; ?>
                     <!-- end of the loop -->
 
-                    <?php wp_reset_postdata(); wp_reset_query(); ?>
+                    <?php wp_reset_postdata();
+                    wp_reset_query(); ?>
 
                 <?php else : ?>
                     <p><?php _e('Sorry, no content'); ?></p>

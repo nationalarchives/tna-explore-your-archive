@@ -15,6 +15,6 @@
     $price = get_post_meta($post->ID, 'custom_entry_price', true);
     $format_start_date = new DateTime($start_date);
     $format_end_date = new DateTime($end_date);
-
+    $banner_image_id = get_post_thumbnail_id($post_to_use->ID);
 
 ?>

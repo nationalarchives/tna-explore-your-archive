@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
-    <title><?php the_title(); ?> <?php bloginfo('description'); ?></title>
+    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
 
     <meta charset="UTF-8">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="<?php the_content(); ?>">
+    <meta name="description"
+          content="Explore Your Archive is a joint campaign delivered by The National Archives and the Archives and Records Association across the UK and Ireland.">
+    <meta name="author" content="TNA Web Team">
+    <meta name="apple-mobile-web-app-title" content="Explore Your Archive">
+    <meta name="application-name" content="Explore Your Archive">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage"
+          content="<?php echo get_template_directory_uri(); ?>/images/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCeHfiJ8a9-ALS5hk7FL2izlXYBe0iFQc4&sensor=false&extension=.js'></script>
+    <!-- Fav Icons -->
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon-32x32.png"
+          sizes="32x32">
+    <link rel="icon" type="image/png"
+          href="<?php echo get_template_directory_uri(); ?>/images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon-96x96.png"
+          sizes="96x96">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon-16x16.png"
+          sizes="16x16">
+    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/images/manifest.json">
+
+    <script
+        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCeHfiJ8a9-ALS5hk7FL2izlXYBe0iFQc4&sensor=false&extension=.js'></script>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/map.js"></script>
 
     <!-- Share this -->
@@ -25,7 +63,7 @@
     <!-- Development -->
     <?php
     wp_head();
-    $address= get_post_meta($post->ID, custom_latlng, true);
+    $address = get_post_meta($post->ID, custom_latlng, true);
     ?>
     <!-- Development -->
     <script>
@@ -35,7 +73,7 @@
 
         function initialize() {
             geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(51.5000,0.1167);
+            var latlng = new google.maps.LatLng(51.5000, 0.1167);
             var myOptions = {
                 zoom: 15,
                 center: latlng,
@@ -50,7 +88,7 @@
             if (geocoder) {
                 geocoder.geocode({
                     'address': address
-                }, function(results, status) {
+                }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
                             map.setCenter(results[0].geometry.location);
@@ -65,7 +103,7 @@
                                 map: map,
                                 title: address
                             });
-                            google.maps.event.addListener(marker, 'click', function() {
+                            google.maps.event.addListener(marker, 'click', function () {
                                 infowindow.open(map, marker);
                             });
 

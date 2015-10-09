@@ -60,6 +60,7 @@ table {
 /* Media Query - If <= than 568px */
 /* Media Query - If <= than 568px */
 /* Media Query - Old Iphone - Landscape */
+/* Media Query - Iphone 6S - Portrait*/
 /* Media Query - Iphone 6 - Portrait*/
 /* Media Query - Samsung S4 - Portrait*/
 /* Media Query - If <= than 568px */
@@ -438,33 +439,36 @@ header {
     @media (max-width: 768px) {
       #events .featured {
         top: 89px; } }
-    @media (width: 736px) {
+    @media (min-width: 668px) and (max-width: 736px) {
       #events .featured {
-        top: 253px; } }
-    @media (width: 600px) {
-      #events .featured {
-        top: 218px; } }
-    @media (width: 640px) {
-      #events .featured {
-        top: 231px; } }
+        top: 278px; } }
     @media (min-width: 641px) and (max-width: 667px) {
       #events .featured {
         top: 244px; } }
-    @media (width: 568px) {
+    @media (min-width: 601px) and (max-width: 640px) {
       #events .featured {
-        top: 203px; } }
-    @media (width: 480px) {
+        top: 218px; } }
+    @media (min-width: 569px) and (max-width: 600px) {
       #events .featured {
-        top: 160px; } }
-    @media (width: 375px) {
+        top: 210px; } }
+    @media (min-width: 481px) and (max-width: 568px) {
+      #events .featured {
+        top: 197px; } }
+    @media (min-width: 415px) and (max-width: 480px) {
+      #events .featured {
+        top: 154px; } }
+    @media (min-width: 378px) and (max-width: 414px) {
+      #events .featured {
+        top: 123px; } }
+    @media (min-width: 261px) and (max-width: 375px) {
       #events .featured {
         top: 104px; } }
-    @media (width: 360px) {
+    @media (min-width: 321px) and (max-width: 360px) {
       #events .featured {
         top: 97px; } }
-    @media (max-width: 320px) {
+    @media (min-width: 260px) and (max-width: 320px) {
       #events .featured {
-        top: 83px; } }
+        top: 77px; } }
   #events .price {
     float: right;
     display: block;
@@ -519,7 +523,7 @@ header {
   #about .aboutImg {
     float: right;
     margin-top: -40px; }
-    @media (max-width: 600px) {
+    @media (max-width: 667px) {
       #about .aboutImg {
         margin: 0;
         float: none; } }
@@ -780,3 +784,15 @@ footer {
 
 .blank {
   color: #fff; }
+
+@media (min-width: 260px) and (max-width: 320px) {
+  .select2-selection__arrow {
+    right: 28px !important; } }
+
+@media (max-width: 667px) {
+  .fb-page {
+    margin-left: 16px; } }
+
+@media (max-width: 667px) {
+  #twitter-widget-0 {
+    margin-left: 16px; } }

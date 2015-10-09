@@ -3,19 +3,24 @@
         <div class="row">
             <div class="col-xs-6 col-sm-3">
                 <a href="http://www.nationalarchives.gov.uk" target="_blank"><img
-                        src="<?php bloginfo('stylesheet_directory'); ?>/images/explore-your-archive-logo-tna.png" alt="The National Archives"></a>
+                        src="<?php bloginfo('stylesheet_directory'); ?>/images/explore-your-archive-logo-tna.png"
+                        alt="The National Archives"></a>
             </div>
             <div class="col-xs-6 col-sm-6">
-                <p><a href="<?php echo get_option('footer_link_one'); ?>" target="_blank"><?php echo get_option('footer_link_one_desc'); ?></a>, Contact us at <a href="mailto:exploreyourarchive@nationalarchives.gov.uk">exploreyourarchive@nationalarchives.gov.uk</a></p>
-                    <!-- Footer Menu -->
-                    <?php wp_nav_menu( array('menu' => 'Footer' )); ?>
+                <p><a href="<?php echo get_option('footer_link_one'); ?>"
+                      target="_blank"><?php echo get_option('footer_link_one_desc'); ?></a>, Contact us at <a
+                        href="mailto:exploreyourarchive@nationalarchives.gov.uk">exploreyourarchive@nationalarchives.gov.uk</a>
+                </p>
+                <!-- Footer Menu -->
+                <?php wp_nav_menu(array('menu' => 'Footer')); ?>
                 <p><?php echo get_option('footer_copyright'); ?></p>
             </div>
             <!-- Optional: clear the XS cols if their content doesn't match in height -->
             <div class="clearfix visible-xs-block"></div>
             <div class="col-xs-6 col-sm-3">
-                <a class="ara" href="http://www.archives.org.uk/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/ara.png"
-                                                                                       alt="Archvies & Records Association"></a>
+                <a class="ara" href="http://www.archives.org.uk/" target="_blank"><img
+                        src="<?php bloginfo('stylesheet_directory'); ?>/images/ara.png"
+                        alt="Archvies & Records Association"></a>
             </div>
         </div>
     </div>

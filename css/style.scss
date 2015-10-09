@@ -400,32 +400,35 @@ header {
     @media (max-width:$EYA-768px-width){
       top:89px;
     }
-    @media (width:$EYA-736px-width){
-      top:253px;
+    @media (min-width:668px) and (max-width:$EYA-736px-width){
+      top:278px;
     }
-    @media (width:$EYA-600px-width){
-      top:218px;
-    }
-    @media (width:$EYA-640px-width){
-      top:231px;
-    }
-    @media (min-width:641px)and(max-width:$EYA-667px-width){
+    @media (min-width:641px) and (max-width:$EYA-667px-width){
       top:244px;
     }
-    @media (width:$EYA-568px-width){
-      top:203px;
+    @media (min-width:601px) and (max-width:$EYA-640px-width){
+      top:218px;
     }
-    @media (width:$EYA-480px-width){
-      top:160px;
+    @media (min-width:569px) and (max-width:$EYA-600px-width){
+      top:210px;
     }
-    @media (width:$EYA-375px-width){
+    @media (min-width:481px) and (max-width:$EYA-568px-width){
+      top:197px;
+    }
+    @media (min-width:415px) and (max-width:$EYA-480px-width){
+      top:154px;
+    }
+    @media (min-width:378px) and (max-width:$EYA-414px-width){
+      top:123px;
+    }
+    @media (min-width:261px) and (max-width:$EYA-375px-width){
       top:104px;
     }
-    @media (width:$EYA-360px-width){
+    @media (min-width:321px) and (max-width:$EYA-360px-width){
       top:97px;
     }
-    @media (max-width:$EYA-320px-width){
-      top:83px;
+    @media (min-width:260px) and (max-width:$EYA-320px-width){
+      top:77px;
     }
   }
   .price {
@@ -483,6 +486,7 @@ header {
       border-bottom:1px solid grey;
       @media (max-width:767px){
         height:auto;
+
       }
     }
   }
@@ -500,10 +504,11 @@ header {
   .aboutImg {
     float:right;
     margin-top:-40px;
-    @media (max-width:$EYA-600px-width){
+    @media (max-width:$EYA-667px-width){
       margin:0;
       float:none;
     }
+
   }
   p{
     color:$EYA-white;
@@ -816,3 +821,18 @@ footer {
   color:$EYA-white;
 }
 
+.select2-selection__arrow {
+  @media (min-width:260px) and (max-width:$EYA-320px-width){
+    right:28px !important;
+  }
+}
+.fb-page {
+  @media (max-width:$EYA-667px-width) {
+    margin-left:16px;
+  }
+}
+#twitter-widget-0 {
+  @media (max-width:$EYA-667px-width) {
+    margin-left:16px;
+  }
+}

@@ -5,8 +5,17 @@
  */
 
 get_header();
+
+    //Include Variables
+    include('_inc/variables.php');
+
+    /* Enable fearture image for the banner */
+    if ($banner_image_id) {
+        $thumbnail = wp_get_attachment_image_src( $banner_image_id, 'post-thumbnail', false);
+        if ($thumbnail) (string)$thumbnail = $thumbnail[0];
+    }
 ?>
-    <section id="banner" role="banner">
+    <section id="banner" role="banner" style="background: url(<?php echo $thumbnail; ?> ) !important;";>
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
@@ -55,7 +64,7 @@ get_header();
                 <hr/>
                 <?php
 
-                include ('_inc/variables.php');
+
                 if (get_query_var('page')) $paged = get_query_var('page');
 
                 // WP_Query arguments
@@ -65,7 +74,7 @@ get_header();
                     'meta_key' => 'custom_end_date',
                     'meta_value' => $current_date,
                     'meta_compare' => '>=',
-                    'post_per_page' => -1
+                    'post_per_page' => 4
                 );
 
                 $query = new WP_Query($args);
@@ -82,7 +91,7 @@ get_header();
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php echo the_post_thumbnail('events-thumb'); ?>
                                     <?php else: ?>
-                                        <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                                     <?php endif; ?>
                                     <?php if (in_category(4)) : ?>
                                         <span class="featured">FEATURED</span>
@@ -151,7 +160,7 @@ get_header();
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php echo the_post_thumbnail(); ?>
                                     <?php else: ?>
-                                        <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                                     <?php endif; ?>
                                     <?php if (in_category(2)) : ?>
                                         <span class="featured">FEATURED</span>
@@ -187,7 +196,7 @@ get_header();
                     <?php } ?>
 
                 <?php } else {
-                    echo '<p>No Post Found</p>';
+                    echo '<p>No Events Found</p>';
                 }
                 // Restore original Post Data
                 wp_reset_postdata();
@@ -209,6 +218,7 @@ get_header();
                         $args = array(
                             'post_type' => array('news'),
                             'posts_per_page' => '4',
+                            'orderby' => 'menu_order date',
                             'meta_query' => array(
                                 array(
                                     'key' => 'news',
@@ -232,7 +242,7 @@ get_header();
                                                 <?php if (has_post_thumbnail()) : ?>
                                                     <?php echo the_post_thumbnail('news-thumb'); ?>
                                                 <?php else: ?>
-                                                    <img src="http://placehold.it/345x166/f0f0f0f0/e8e8e8?text=EYA">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                                                 <?php endif; ?>
                                                 <div class="caption">
                                                     <h3><?php the_title(); ?></h3>
@@ -315,7 +325,7 @@ get_header();
                             <?php if (has_post_thumbnail()) : ?>
                                 <span class="aboutImg"><?php echo the_post_thumbnail(); ?></span>
                             <?php else: ?>
-                                <img class="aboutImg" src="http://placehold.it/345x266/f0f0f0f0/efefef?text=EYA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
@@ -366,7 +376,7 @@ get_header();
                     wp_reset_query(); ?>
 
                 <?php else : ?>
-                    <p><?php _e('Sorry, no content'); ?></p>
+                    <p><?php _e('Sorry, no activities'); ?></p>
                 <?php endif; ?>
 
             </div>
