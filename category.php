@@ -11,13 +11,11 @@ get_header();
 
 
     /* Enable feature image for the banner */
-    if ($banner_image_id) {
-        $banner_image_id = 4;
-        $thumbnail = wp_get_attachment_image_src( $banner_image_id, 'post-thumbnail', false);
-        if ($thumbnail) (string)$thumbnail = $thumbnail[0];
-    }
+    $thumb_id = get_post_thumbnail_id(4);
+    $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
+    $thumb_url = $thumb_url_array[0];
 ?>
-    <section id="banner" role="banner" style="background: url(<?php echo $thumbnail; ?> ) !important;">
+    <section id="banner" role="banner" style="background: url(<?php echo $thumb_url; ?> ) !important;">
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
