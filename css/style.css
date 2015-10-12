@@ -439,7 +439,7 @@ header {
     background: #772367;
     border-radius: 9px 0 0 0;
     font-size: 0.875em;
-    text-transform: upppercase;
+    text-transform: uppercase;
     padding: 10px;
     color: #fff;
     display: block; }
@@ -506,7 +506,11 @@ header {
       width: 100%; } }
   #latest-news .facebook {
     width: 100%;
-    margin: 20px 0 0 0; }
+    margin: 20px 0 0 0;
+    height: 262px; }
+    @media (max-width: 736px) {
+      #latest-news .facebook {
+        height: auto; } }
   #latest-news .timeline {
     max-width: 100%; }
   #latest-news a:hover {
@@ -605,7 +609,7 @@ header {
     left: 0;
     background: #772367;
     font-size: 2em;
-    text-transform: upppercase;
+    text-transform: uppercase;
     padding: 10px 20px;
     color: #fff;
     display: block; }

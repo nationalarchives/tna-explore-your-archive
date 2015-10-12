@@ -400,7 +400,7 @@ header {
     background:$EYA-purple;
     border-radius:9px 0 0 0;
     font-size: 0.875em;
-    text-transform: upppercase;
+    text-transform: uppercase;
     padding:10px;
     color:$EYA-white;
     display:block;
@@ -475,6 +475,10 @@ header {
   .facebook {
     width:100%;
     margin:20px 0 0 0;
+    height:262px;
+    @media (max-width:$EYA-736px-width){
+      height:auto;
+    }
   }
   .timeline {
     max-width:100%;
@@ -604,7 +608,7 @@ header {
     left: 0;
     background: $EYA-purple;
     font-size: 2em;
-    text-transform: upppercase;
+    text-transform: uppercase;
     padding: 10px 20px;
     color: $EYA-white;
     display: block;
