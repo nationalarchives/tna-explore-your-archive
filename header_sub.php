@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
-    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
-
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.min.js"></script>
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="http://livelb.nationalarchives.gov.uk/wp-content/themes/tna/scripts/selectivizr-min.js"></script>
+    <script type="text/javascript" src="http://livelb.nationalarchives.gov.uk/wp-content/themes/tna/scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <title><?php the_title(); ?><?php bloginfo('description'); ?></title>
+
     <meta name="description"
           content="Explore Your Archive is a joint campaign delivered by The National Archives and the Archives and Records Association across the UK and Ireland.">
     <meta name="author" content="TNA Web Team">

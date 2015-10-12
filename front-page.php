@@ -14,7 +14,7 @@ get_header();
     $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
     $thumb_url = $thumb_url_array[0];
 ?>
-    <section id="banner" role="banner" style="background: url(<?php echo $thumb_url; ?> ) !important;";>
+    <section id="banner" role="banner" style="background: url(<?php echo $thumb_url; ?> ) !important; background-size:cover !important; background-repeat:no-repeat";>
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
@@ -70,7 +70,7 @@ get_header();
                 $args = array(
                     'post_type' => 'post',
                     'cat' => 4,
-                    'meta_key' => 'custom_end_date',
+                    'meta_key' => $custom_end_date,
                     'meta_value' => $current_date,
                     'meta_compare' => '>=',
                     'post_per_page' => 4
@@ -139,7 +139,7 @@ get_header();
                 $args2 = array(
                     'post_type' => 'post',
                     'cat' => -4, //Display all posts exclude this category.
-                    'meta_key' => 'custom_end_date',
+                    'meta_key' => $custom_end_date,
                     'meta_value' => $current_date,
                     'meta_compare' => '>=',
                     'post_per_page' => -1
@@ -268,7 +268,7 @@ get_header();
                         <div align="center"><a class="twitter-timeline"
                                                href="https://twitter.com/search?q=%23explorearchives"
                                                data-widget-id="389751188226191361" data-link-color="#3c90d1"
-                                               width="100%" height="450px" data-show-replies="false">Tweets about
+                                               width="100%" height="410px" data-show-replies="false">Tweets about
                                 "#explorearchives"</a>
                             <script>!function (d, s, id) {
                                     var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
