@@ -186,6 +186,21 @@ header {
     height:414px;
     text-align:center;
     color:$EYA-white;
+    .buttonShowAll{
+      width: 100px;
+      text-align: center;
+      clear: both;
+      float: none;
+      display: block;
+      background: $EYA-blue;
+      padding: 5px;
+      color: $EYA-white !important;
+      margin: 0 auto;
+      border-radius: 20px;
+      &:hover {
+        background:$EYA-light-blue;
+      }
+    }
     .container {
       @media (max-width:$EYA-768px-width){
         width:100%;
@@ -319,6 +334,9 @@ header {
 }
 
 #events {
+  .col-md-3 {
+    margin:0 0 20px 0;
+  }
   .row {
     @media (max-width: $EYA-988px-width){
       margin-right:0;
@@ -363,12 +381,15 @@ header {
     line-height:14px;
   }
   .thumbnail{
-    min-height:125.318px;
+    height:100%;
     padding:0;
     background-image:$EYA-colours-stripe;
     background-position: bottom;
     background-repeat:repeat-x;
     background-size: 100% 3%;
+    @media (max-width:767px){
+      height:auto !important;
+    }
     img {
       height: 125px;
       width: 100%;
@@ -461,6 +482,7 @@ header {
 }
 #latest-news{
   .col-md-6 {
+    margin:0 0 20px 0;
     @media (max-width:$EYA-988px-width){
       width:100%;
     }
@@ -491,6 +513,9 @@ header {
   .twitter {
     width:100%;
   }
+  h3 {
+    color:$EYA-pink;
+  }
   h2 {
     width:100%;
     text-align:center;
@@ -506,6 +531,8 @@ header {
     padding:0 0 20px 0;
   }
   .thumbnail {
+    background: $EYA-white;
+    height:100%;
     .wp-post-image{
       height:166px;
       width:100%;
