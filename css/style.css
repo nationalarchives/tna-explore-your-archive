@@ -245,6 +245,19 @@ header {
   height: 414px;
   text-align: center;
   color: #fff; }
+  #banner .buttonShowAll {
+    width: 100px;
+    text-align: center;
+    clear: both;
+    float: none;
+    display: block;
+    background: #135ea8;
+    padding: 5px;
+    color: #fff !important;
+    margin: 0 auto;
+    border-radius: 20px; }
+    #banner .buttonShowAll:hover {
+      background: #3c90d1; }
   @media (max-width: 768px) {
     #banner .container {
       width: 100%;
@@ -367,6 +380,8 @@ header {
 
 #events {
   font-family: "Open Sans", sans-serif; }
+  #events .col-md-3 {
+    margin: 0 0 20px 0; }
   @media (max-width: 988px) {
     #events .row {
       margin-right: 0; } }
@@ -402,7 +417,7 @@ header {
   #events p {
     line-height: 14px; }
   #events .thumbnail {
-    min-height: 125.318px;
+    height: 100%;
     padding: 0;
     background-image: url("../images/top-c-stripe.png");
     background-position: bottom;
@@ -413,6 +428,9 @@ header {
     -ms-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
+    @media (max-width: 767px) {
+      #events .thumbnail {
+        height: auto !important; } }
     #events .thumbnail img {
       height: 125px;
       width: 100%;
@@ -498,9 +516,11 @@ header {
 
 #latest-news {
   background-color: #F7F7F7; }
-  @media (max-width: 988px) {
-    #latest-news .col-md-6 {
-      width: 100%; } }
+  #latest-news .col-md-6 {
+    margin: 0 0 20px 0; }
+    @media (max-width: 988px) {
+      #latest-news .col-md-6 {
+        width: 100%; } }
   @media (max-width: 766px) {
     #latest-news .col-xs-6 {
       width: 100%; } }
@@ -517,6 +537,8 @@ header {
     text-decoration: none; }
   #latest-news .twitter {
     width: 100%; }
+  #latest-news h3 {
+    color: #C5327F; }
   #latest-news h2 {
     width: 100%;
     text-align: center;
@@ -529,13 +551,16 @@ header {
     height: 2px;
     border-color: #cecece;
     padding: 0 0 20px 0; }
-  #latest-news .thumbnail .wp-post-image {
-    height: 166px;
-    width: 100%;
-    border-bottom: 1px solid grey; }
-    @media (max-width: 767px) {
-      #latest-news .thumbnail .wp-post-image {
-        height: auto; } }
+  #latest-news .thumbnail {
+    background: #fff;
+    height: 100%; }
+    #latest-news .thumbnail .wp-post-image {
+      height: 166px;
+      width: 100%;
+      border-bottom: 1px solid grey; }
+      @media (max-width: 767px) {
+        #latest-news .thumbnail .wp-post-image {
+          height: auto; } }
   #latest-news .caption a {
     color: #000; }
     #latest-news .caption a:hover {

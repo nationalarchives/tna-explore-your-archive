@@ -17,5 +17,10 @@
     $format_end_date = new DateTime($end_date);
     $banner_image_id = get_post_thumbnail_id($post_to_use->ID);
     $link = get_post_meta($post->ID, 'custom_web_url', true);
+    $date = new DateTime($start_date);
 
+    /* Enable feature image for the banner */
+    $thumb_id = get_post_thumbnail_id();
+    $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
+    $thumb_url = $thumb_url_array[0];
 ?>
