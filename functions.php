@@ -120,4 +120,12 @@ function create_meta_desc()
 }
 
 add_action('wp_head', 'create_meta_desc');
+
+// Add menu order on posts
+add_action( 'admin_init', 'posts_order_wpse_91866' );
+
+function posts_order_wpse_91866()
+{
+    add_post_type_support( 'post', 'page-attributes' );
+}
 ?>

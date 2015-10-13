@@ -11,7 +11,7 @@ get_header();
 
 
     /* Enable feature image for the banner */
-    $thumb_id = get_post_thumbnail_id(4);
+    $thumb_id = get_post_thumbnail_id(32);
     $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
     $thumb_url = $thumb_url_array[0];
 ?>
