@@ -6,6 +6,7 @@
         'meta_key' => $custom_end_date,
         'meta_value' => $current_date,
         'meta_compare' => '>=',
+        'orderby' => 'menu_order date',
         'post_per_page' => -1
     );
 
