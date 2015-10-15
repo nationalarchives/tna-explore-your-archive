@@ -1,4 +1,9 @@
 <?php
+/**
+ * Latest activity section on homepage/region
+ * TNA Web Team
+ */
+
 // WP_Query arguments
 $args = array(
     'post_type' => array('latest-activity'),

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Select by region
+ * TNA Web Team
+ */
 
 $args = array(
     'show_option_none' => __('Region'),

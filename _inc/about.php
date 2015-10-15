@@ -1,4 +1,8 @@
 <?php
+/**
+ * About section
+ * TNA Web Team
+ */
 // WP_Query arguments
 $args = array(
     'pagename' => 'about-us',
