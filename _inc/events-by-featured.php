@@ -1,16 +1,22 @@
-<?php if (get_query_var('page')) $paged = get_query_var('page');
+<?php
+/**
+ * Events by featured category on home page
+ * TNA Web Team
+ */
 
-    // WP_Query arguments
-    $args = array(
-        'post_type' => 'post',
-        'cat' => 4,
-        'meta_key' => $custom_end_date,
-        'meta_value' => $current_date,
-        'meta_compare' => '>=',
-        'post_per_page' => 4
-    );
+if (get_query_var('page')) $paged = get_query_var('page');
 
-    $query = new WP_Query($args);
+// WP_Query arguments
+$args = array(
+    'post_type' => 'post',
+    'cat' => 4,
+    'meta_key' => $custom_end_date,
+    'meta_value' => $current_date,
+    'meta_compare' => '>=',
+    'post_per_page' => 4
+);
+
+$query = new WP_Query($args);
 
 // The Loop
 if ($query->have_posts()) {
@@ -21,7 +27,7 @@ if ($query->have_posts()) {
         include('variables.php');
         ?>
         <div class="col-sm-6 col-md-3">
-            <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <div class="thumbnail">
                     <?php if (has_post_thumbnail()) : ?>
                         <?php echo the_post_thumbnail('events-thumb'); ?>

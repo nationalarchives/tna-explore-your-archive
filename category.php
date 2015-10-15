@@ -46,7 +46,7 @@ get_header();
 
     <section id="events">
         <div class="container">
-            <div class="row">
+            <div id="index-events" class="row">
                 <h2>
                     <?php
                     foreach ((get_the_category()) as $category) { ?>
@@ -72,7 +72,7 @@ get_header();
                 <h2><?php echo get_option('eya_headline_section_two'); ?></h2>
                 <hr/>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-8">
+                    <div id="index-news" class="col-xs-12 col-sm-6 col-md-8">
                         <?php
 
                         // Latest news - Wp_query

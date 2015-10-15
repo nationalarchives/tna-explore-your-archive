@@ -1,16 +1,19 @@
 <?php
+/**
+ * Events by date on home page
+ * TNA Web Team
+ */
+$args2 = array(
+    'post_type' => 'post',
+    'cat' => -4, //Display all posts exclude this category.
+    'meta_key' => $custom_end_date,
+    'meta_value' => $current_date,
+    'meta_compare' => '>=',
+    'orderby' => 'menu_order date',
+    'post_per_page' => -1
+);
 
-    $args2 = array(
-        'post_type' => 'post',
-        'cat' => -4, //Display all posts exclude this category.
-        'meta_key' => $custom_end_date,
-        'meta_value' => $current_date,
-        'meta_compare' => '>=',
-        'orderby' => 'menu_order date',
-        'post_per_page' => -1
-    );
-
-    $query = new WP_query($args2);
+$query = new WP_query($args2);
 
 // The Loop
 if ($query->have_posts()) {
@@ -21,7 +24,7 @@ if ($query->have_posts()) {
         include('variables.php');
         ?>
         <div class="col-sm-6 col-md-3">
-            <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <div class="thumbnail">
                     <?php if (has_post_thumbnail()) : ?>
                         <?php echo the_post_thumbnail(); ?>

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Latest news section on home page / region
+ * TNA Web Team
+ */
 
 // WP_Query arguments
 $args = array(
@@ -23,7 +27,7 @@ $news = new WP_Query($args);
         <?php $news_field = get_post_meta($post->ID, 'news', true) ?>
         <div class="col-sm-6 col-md-6">
             <?php if ($news_field && '' != $news_field) : ?>
-                <a href="<?php echo $news_field ?>" target="_blank">
+                <a href="<?php echo $news_field ?>" target="_blank" title="<?php the_title(); ?>">
                     <div class="thumbnail">
                         <?php if (has_post_thumbnail()) : ?>
                             <?php echo the_post_thumbnail('news-thumb'); ?>

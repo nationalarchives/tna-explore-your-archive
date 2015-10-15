@@ -1,4 +1,9 @@
 <?php
+/**
+ * Theme settings
+ * TNA Web Team
+ */
+
 add_action('admin_enqueue_scripts', 'options_enqueue_scripts');
 
 function register_my_fields()

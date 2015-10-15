@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Custom fields
+ * TNA Web Team
+ */
 if(is_admin()) {
     wp_enqueue_script( 'jquery-ui-datepicker', get_template_directory_uri() . '/js/jquery-ui-1.11.4/jquery-ui.js', array(), '1.0.0', true );
     wp_enqueue_style('jquery-ui-custom', get_template_directory_uri().'/js/jquery-ui-1.11.4/jquery-ui.css');

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Events on category/region page
+ * TNA Web Team
+ */
+
 // The Loop
 if (have_posts()) {
     while (have_posts()) {
@@ -6,7 +11,7 @@ if (have_posts()) {
 
         ?>
         <div class="col-sm-6 col-md-3">
-            <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <div class="thumbnail">
                     <?php if (has_post_thumbnail()) : ?>
                         <?php echo the_post_thumbnail('events-thumb'); ?>

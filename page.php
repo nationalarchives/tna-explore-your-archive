@@ -1,6 +1,6 @@
 <?php
 /**
- * Front Page
+ * Page
  * TNA Web Team
  */
 
