@@ -23,7 +23,7 @@ if ($query->have_posts()) {
         //Include Variables
         include('variables.php');
         ?>
-        <div class="col-sm-6 col-md-3">
+        <div class="load_more col-sm-6 col-md-3">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <div class="thumbnail">
                     <?php if (has_post_thumbnail()) : ?>

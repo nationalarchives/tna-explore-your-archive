@@ -380,6 +380,18 @@ header {
 
 #events {
   font-family: "Open Sans", sans-serif; }
+  #events #loadMore {
+    color: green;
+    cursor: pointer; }
+    #events #loadMore:hover {
+      color: black; }
+  #events #showLess {
+    color: red;
+    cursor: pointer; }
+    #events #showLess:hover {
+      color: black; }
+  #events .load_more {
+    display: none; }
   #events .col-md-3 {
     margin: 0 0 20px 0; }
   @media (max-width: 988px) {

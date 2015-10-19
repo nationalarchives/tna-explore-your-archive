@@ -334,6 +334,23 @@ header {
 }
 
 #events {
+  #loadMore {
+    color:green;
+    cursor:pointer;
+    &:hover {
+      color:black;
+    }
+  }
+  #showLess {
+    color:red;
+    cursor:pointer;
+    &:hover {
+      color:black;
+    }
+  }
+  .load_more {
+    display:none;
+  }
   .col-md-3 {
     margin:0 0 20px 0;
   }
