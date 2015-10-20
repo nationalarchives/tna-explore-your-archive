@@ -53,7 +53,7 @@ include('_inc/variables.php');
 
                 ?>
             </div>
-            <div id="loadMore">Load more</div>
+            <div id="loadMore">Show more</div>
             <div id="showLess">Show less</div>
         </div>
     </section>

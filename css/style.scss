@@ -335,17 +335,31 @@ header {
 
 #events {
   #loadMore {
-    color:green;
     cursor:pointer;
-    &:hover {
-      color:black;
-    }
+      width: 100px;
+      text-align: center;
+      clear: both;
+      float: none;
+      display: block;
+      background: $EYA-blue;
+      padding: 5px;
+      color: $EYA-white !important;
+      margin: 0 auto;
+      border-radius: 20px;
+      &:hover {
+        background:$EYA-light-blue;
+      }
   }
   #showLess {
-    color:red;
     cursor:pointer;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    float: none;
+    display: block;
     &:hover {
-      color:black;
+      color:$EYA-light-blue;
     }
   }
   .load_more {

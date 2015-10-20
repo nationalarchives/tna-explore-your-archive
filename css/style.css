@@ -381,15 +381,29 @@ header {
 #events {
   font-family: "Open Sans", sans-serif; }
   #events #loadMore {
-    color: green;
-    cursor: pointer; }
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    clear: both;
+    float: none;
+    display: block;
+    background: #135ea8;
+    padding: 5px;
+    color: #fff !important;
+    margin: 0 auto;
+    border-radius: 20px; }
     #events #loadMore:hover {
-      color: black; }
+      background: #3c90d1; }
   #events #showLess {
-    color: red;
-    cursor: pointer; }
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    float: none;
+    display: block; }
     #events #showLess:hover {
-      color: black; }
+      color: #3c90d1; }
   #events .load_more {
     display: none; }
   #events .col-md-3 {

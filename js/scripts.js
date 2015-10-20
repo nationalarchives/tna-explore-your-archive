@@ -33,17 +33,18 @@ window.addEventListener("orientationchange", function () {
     window.location = loc;
 }, false);
 
-// Add load more buttons for the events
+// Add show more buttons for the events
 (function($){
     size_li = $(".row .load_more").size();
-    x = 4;
+    x = 8;
     $('.row .load_more:lt(' + x + ')').show();
     $('#loadMore').click(function () {
         x = (x + 4 <= size_li) ? x + 4 : size_li;
-        $('.row .load_more:lt(' + x + ')').show();
+        $('.row .load_more:lt(' + x + ')').fadeIn("slow");
     });
     $('#showLess').click(function () {
-        x = (x - 4 < 0) ? 4 : x - 1;
-        $('.row .load_more').not(':lt(' + x + ')').hide();
+        x = (x - 4 < 4) ? 4 : x - 4;
+        $('.row .load_more').not(':lt(' + x + ')').fadeOut('slow');
     });
 })(jQuery);
+
