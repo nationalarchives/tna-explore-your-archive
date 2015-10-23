@@ -334,6 +334,37 @@ header {
 }
 
 #events {
+  #loadMore {
+    cursor:pointer;
+      width: 100px;
+      text-align: center;
+      clear: both;
+      float: none;
+      display: block;
+      background: $EYA-blue;
+      padding: 5px;
+      color: $EYA-white !important;
+      margin: 0 auto;
+      border-radius: 20px;
+      &:hover {
+        background:$EYA-light-blue;
+      }
+  }
+  #showLess {
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    float: none;
+    display: block;
+    &:hover {
+      color:$EYA-light-blue;
+    }
+  }
+  .load_more {
+    display:none;
+  }
   .col-md-3 {
     margin:0 0 20px 0;
   }

@@ -32,3 +32,19 @@ window.addEventListener("orientationchange", function () {
     var loc = window.location.href;
     window.location = loc;
 }, false);
+
+// Add show more buttons for the events
+(function($){
+    size_li = $(".row .load_more").size();
+    x = 8;
+    $('.row .load_more:lt(' + x + ')').show();
+    $('#loadMore').click(function () {
+        x = (x + 4 <= size_li) ? x + 4 : size_li;
+        $('.row .load_more:lt(' + x + ')').fadeIn("slow");
+    });
+    $('#showLess').click(function () {
+        x = (x - 4 < 4) ? 4 : x - 4;
+        $('.row .load_more').not(':lt(' + x + ')').fadeOut('slow');
+    });
+})(jQuery);
+

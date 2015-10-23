@@ -380,6 +380,32 @@ header {
 
 #events {
   font-family: "Open Sans", sans-serif; }
+  #events #loadMore {
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    clear: both;
+    float: none;
+    display: block;
+    background: #135ea8;
+    padding: 5px;
+    color: #fff !important;
+    margin: 0 auto;
+    border-radius: 20px; }
+    #events #loadMore:hover {
+      background: #3c90d1; }
+  #events #showLess {
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+    clear: both;
+    float: none;
+    display: block; }
+    #events #showLess:hover {
+      color: #3c90d1; }
+  #events .load_more {
+    display: none; }
   #events .col-md-3 {
     margin: 0 0 20px 0; }
   @media (max-width: 988px) {

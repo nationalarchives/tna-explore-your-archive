@@ -52,8 +52,9 @@ include('_inc/variables.php');
                 require(locate_template('_inc/events-by-date.php'));
 
                 ?>
-
             </div>
+            <div id="loadMore">Show more</div>
+            <div id="showLess">Show fewer</div>
         </div>
     </section>
     <section id="latest-news">
