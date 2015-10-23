@@ -54,7 +54,7 @@ include('_inc/variables.php');
                 ?>
             </div>
             <div id="loadMore">Show more</div>
-            <div id="showLess">Show less</div>
+            <div id="showLess">Show fewer</div>
         </div>
     </section>
     <section id="latest-news">
