@@ -13,7 +13,7 @@ $args = array(
     'meta_key' => $custom_end_date,
     'meta_value' => $current_date,
     'meta_compare' => '>=',
-    'post_per_page' => 4
+    'posts_per_page' => 4,
 );
 
 $query = new WP_Query($args);

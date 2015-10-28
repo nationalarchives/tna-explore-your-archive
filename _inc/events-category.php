@@ -8,7 +8,8 @@
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-
+        //Include Variables
+        include('variables.php');
         ?>
         <div class="col-sm-6 col-md-3">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
