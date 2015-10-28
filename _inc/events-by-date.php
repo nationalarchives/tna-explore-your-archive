@@ -10,7 +10,7 @@ $args2 = array(
     'meta_value' => $current_date,
     'meta_compare' => '>=',
     'orderby' => 'menu_order date',
-    'post_per_page' => -1
+    'posts_per_page' => -1
 );
 
 $query = new WP_query($args2);
