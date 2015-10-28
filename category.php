@@ -9,9 +9,9 @@ get_header();
     //Include Variables
     include('_inc/variables.php');
 
-
     /* Enable feature image for the banner */
-    $thumb_id = get_post_thumbnail_id(32);
+    $frontpage_ID = get_option('page_on_front');
+    $thumb_id = get_post_thumbnail_id( $frontpage_ID);
     $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
     $thumb_url = $thumb_url_array[0];
 ?>

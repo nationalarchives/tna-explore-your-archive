@@ -240,7 +240,6 @@ header {
       padding: 0; } }
 
 #banner {
-  background-image: url("../images/banner.jpg");
   background-size: cover;
   height: 414px;
   text-align: center;
