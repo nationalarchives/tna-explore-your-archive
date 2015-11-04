@@ -66,6 +66,38 @@ get_header();
             </div>
         </div>
     </section>
+    <section id="newsletter">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6">
+                    <p>
+                        <?php
+                        $result = $_GET['result'];
+                        if($result == 'success') {
+                            echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
+                            echo '<script>';
+                            echo 'window.location = "#newsletter";';
+                            echo '</script>';
+                        } else {
+                            echo get_option('newsletter');
+                        }
+                        ?>
+                    </p>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <form name="signup" id="banner-form" class="pad-medium" action="http://dmtrk.co.uk/signup.ashx"
+                          method="post"><input type="hidden" name="addressbookid" value="281378"><input type="hidden"
+                                                                                                        name="userid"
+                                                                                                        value="28895"><input
+                            type="hidden" name="ReturnURL" value="http://exploreyourarchive.org"><input
+                            type="email" id="Email" name="Email" required=""
+                            placeholder="Enter your email address"><input id="newsletterSignUp" type="submit"
+                                                                          value="Sign up" class="button"></form>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="latest-news">
         <div class="container">
             <div class="row">

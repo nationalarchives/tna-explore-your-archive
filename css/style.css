@@ -254,6 +254,10 @@ header {
     padding: 5px;
     color: #fff !important;
     margin: 0 auto;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
     border-radius: 20px; }
     #banner .buttonShowAll:hover {
       background: #3c90d1; }
@@ -390,7 +394,12 @@ header {
     padding: 5px;
     color: #fff !important;
     margin: 0 auto;
-    border-radius: 20px; }
+    border-radius: 20px;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
     #events #loadMore:hover {
       background: #3c90d1; }
   #events #showLess {
@@ -830,6 +839,46 @@ footer {
     float: right;
     margin: 20px 0 0 0;
     color: #fff; }
+
+#newsletter {
+  background-color: #ededed;
+  background-image: url("../images/top-c-stripe.png");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 100% 5%;
+  padding: 70px 0 70px 0; }
+  @media (max-width: 600px) {
+    #newsletter .col-sm-6 {
+      width: 100%; } }
+  #newsletter p {
+    font-size: 1.2em;
+    margin: 0;
+    line-height: 39px; }
+  #newsletter input[type="email"] {
+    height: 40px;
+    width: 50%; }
+    @media (max-width: 600px) {
+      #newsletter input[type="email"] {
+        width: 100%; } }
+  #newsletter input#newsletterSignUp {
+    height: 39px;
+    width: 45%;
+    margin: 0 0 0 10px;
+    background: #772367;
+    padding: 5px;
+    color: #fff;
+    border: 0;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    @media (max-width: 600px) {
+      #newsletter input#newsletterSignUp {
+        width: 100%;
+        margin: 10px 0 0 0; } }
+    #newsletter input#newsletterSignUp:hover {
+      background: #E14094; }
 
 .iframe-respo {
   position: relative;

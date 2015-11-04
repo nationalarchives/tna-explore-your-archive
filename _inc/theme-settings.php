@@ -23,6 +23,7 @@ function register_my_fields()
     register_setting('logo_options_group', "footer_link_one");
     register_setting('logo_options_group', "footer_link_one_desc");
     register_setting('logo_options_group', "footer_copyright");
+    register_setting('logo_options_group', "newsletter");
 }
 
 add_action('admin_init', 'register_my_fields');
@@ -73,6 +74,7 @@ function add_options_to_page()
     add_settings_field('twitter_url', 'Twitter Profile Url', 'display_eya_fields');
     add_settings_field('facebook_url', 'Facebook Profile Url', 'display_eya_fields');
     add_settings_field('pinterest_url', 'Pinterest Profile Url', 'display_eya_fields');
+    add_settings_field('newsletter', 'Newsletter', 'display_eya_fields');
     add_settings_field('footer_info', 'Footer Information', 'display_eya_fields');
     add_settings_field('footer_link_one', 'Footer Link One', 'display_eya_fields');
     add_settings_field('footer_link_one_description', 'Footer Link One Description', 'display_eya_fields');
@@ -167,6 +169,12 @@ function display_eya_fields()
         <div class="col-xs-6 col-sm-2"><strong>Pinterest:</strong></div>
         <div class="col-xs-6 col-sm-3"><input type="text" name="pinterest_url" id="pinterest_url"
                                               value="<?php echo get_option('pinterest_url'); ?>"/></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-2"><strong>Newsletter:</strong></div>
+        <div class="col-xs-6 col-sm-3"><input type="text" name="newsletter" id="newsletter"
+                                              value="<?php echo get_option('newsletter'); ?>"/></div>
     </div>
 
     <div class="row">
