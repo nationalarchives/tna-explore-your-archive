@@ -71,9 +71,6 @@ include('_inc/variables.php');
                                 echo get_option('newsletter');
                             }
                         ?>
-                        <script>
-
-                        </script>
                     </p>
                 </div>
                 <div class="col-xs-6 col-sm-6">
