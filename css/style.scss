@@ -181,7 +181,6 @@ header {
 }
 
 #banner{
-    background-image:url('../images/banner.jpg');
     background-size:cover;
     height:414px;
     text-align:center;
@@ -196,7 +195,7 @@ header {
       padding: 5px;
       color: $EYA-white !important;
       margin: 0 auto;
-      border-radius: 20px;
+      @include border-radius(20px);
       &:hover {
         background:$EYA-light-blue;
       }
@@ -346,6 +345,7 @@ header {
       color: $EYA-white !important;
       margin: 0 auto;
       border-radius: 20px;
+      @include transition();
       &:hover {
         background:$EYA-light-blue;
       }
@@ -872,6 +872,50 @@ footer {
   }
 }
 
+#newsletter {
+  background-color:darken($EYA-light-grey, 4%);
+  background-image: $EYA-colours-stripe;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 100% 5%;
+  padding:70px 0 70px 0;
+  .col-sm-6 {
+    @media (max-width:$EYA-600px-width){
+      width:100%;
+    }
+  }
+  p{
+    font-size:1.2em;
+    margin:0;
+    line-height:39px;
+  }
+  input {
+    &[type="email"] {
+      height:40px;
+      width:50%;
+      @media (max-width:$EYA-600px-width){
+        width:100%;
+      }
+    }
+    &#newsletterSignUp {
+      height:39px;
+      width:45%;
+      margin:0 0 0 10px;
+      background: $EYA-purple;
+      padding: 5px;
+      color: $EYA-white;
+      border:0;
+      @include transition();
+      @media (max-width:$EYA-600px-width){
+        width:100%;
+        margin:10px 0 0 0;
+      }
+      &:hover {
+        background:$EYA-light-pink;
+      }
+    }
+  }
+}
 .iframe-respo {
   position: relative;
   padding-bottom: 100%; // This is the aspect ratio

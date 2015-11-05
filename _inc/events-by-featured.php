@@ -6,10 +6,12 @@
 
 if (get_query_var('page')) $paged = get_query_var('page');
 
+$featured_category_id = get_cat_ID('featured');
+
 // WP_Query arguments
 $args = array(
     'post_type' => 'post',
-    'cat' => 4,
+    'cat' => $featured_category_id,
     'meta_key' => $custom_end_date,
     'meta_value' => $current_date,
     'meta_compare' => '>=',

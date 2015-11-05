@@ -3,9 +3,12 @@
  * Events by date on home page
  * TNA Web Team
  */
+
+$featured_category_id = get_cat_ID('featured');
+
 $args2 = array(
     'post_type' => 'post',
-    'cat' => -4, //Display all posts exclude this category.
+    'cat' => -$featured_category_id, //Display all posts exclude this category.
     'meta_key' => $custom_end_date,
     'meta_value' => $current_date,
     'meta_compare' => '>=',
@@ -32,9 +35,6 @@ if ($query->have_posts()) {
                         <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png"
                              alt="Explore Your Archive">
                     <?php endif; ?>
-                    <?php if (in_category(2)) : ?>
-                        <span class="featured">FEATURED</span>
-                    <?php endif; ?>
                     <span class="price"><?php echo $price ?></span>
 
                     <div class="caption">
@@ -42,9 +42,7 @@ if ($query->have_posts()) {
 
                         <p><i class="fa fa-map-marker"></i>
                             <?php foreach ((get_the_category()) as $category) { ?>
-                                <?php if ($category->cat_name != 'Featured') { ?>
                                     <?php echo $category->cat_name . ' '; ?>
-                                <?php } ?>
                             <?php } ?>
                         </p>
 
