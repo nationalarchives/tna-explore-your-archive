@@ -65,5 +65,8 @@
 <!-- END OF WebTrends -->
 
 <?php wp_footer(); ?>
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
 </body>
 </html>

@@ -76,9 +76,6 @@ get_header();
                         $result = $_GET['result'];
                         if($result == 'success') {
                             echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
-                            echo '<script>';
-                            echo 'window.location = "#newsletter";';
-                            echo '</script>';
                         } else {
                             echo get_option('newsletter');
                         }
