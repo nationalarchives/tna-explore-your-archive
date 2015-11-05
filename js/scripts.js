@@ -48,3 +48,6 @@ window.addEventListener("orientationchange", function () {
     });
 })(jQuery);
 
+if(!!window.location.search && !!window.location.search.indexOf('result=success')) {
+    window.location.hash = 'newsletter';
+}

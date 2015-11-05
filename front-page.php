@@ -66,14 +66,14 @@ include('_inc/variables.php');
                         <?php
                         $result = $_GET['result'];
                             if($result == 'success') {
-                                echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
-                                echo '<script>';
-                                echo 'window.location = "#newsletter";';
-                                echo '</script>';
+                             echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
                             } else {
                                 echo get_option('newsletter');
                             }
                         ?>
+                        <script>
+
+                        </script>
                     </p>
                 </div>
                 <div class="col-xs-6 col-sm-6">
