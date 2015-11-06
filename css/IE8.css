@@ -1,0 +1,12 @@
+#event ul li {
+    width:24.1% !important;
+}
+
+#event .price {
+    font-size:40px !important;
+    line-height:90px !important;
+    color:#C5327F !important;
+}
+header{
+    background:black !important;
+}

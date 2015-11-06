@@ -35,6 +35,9 @@ window.addEventListener("orientationchange", function () {
 
 // Add show more buttons for the events
 (function($){
+    $(".row .load_more").hide();
+    $("#loadMore").show();
+    $("#showLess").show();
     size_li = $(".row .load_more").size();
     x = 8;
     $('.row .load_more:lt(' + x + ')').show();
@@ -52,3 +55,11 @@ window.addEventListener("orientationchange", function () {
 if(!!window.location.search && !!window.location.search.indexOf('result=success')) {
     window.location.hash = 'newsletter';
 }
+
+//Toggle Link to us
+(function($){
+    $("#link_to_eya").hide();
+    $("#link_to_us").click(function(){
+        $("#link_to_eya").slideToggle("slow");
+    })
+})(jQuery);
