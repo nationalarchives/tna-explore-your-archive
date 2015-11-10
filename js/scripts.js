@@ -35,6 +35,9 @@ window.addEventListener("orientationchange", function () {
 
 // Add show more buttons for the events
 (function($){
+    $(".row .load_more").hide();
+    $("#loadMore").show();
+    $("#showLess").show();
     size_li = $(".row .load_more").size();
     x = 8;
     $('.row .load_more:lt(' + x + ')').show();
@@ -49,6 +52,14 @@ window.addEventListener("orientationchange", function () {
 })(jQuery);
 
 // Add the hash tag newsletter after a user subscribe
-if(!!window.location.search && !!window.location.search.indexOf('result=success')) {
+if(!!window.location.search && window.location.search.indexOf('result=success') > -1) {
     window.location.hash = 'newsletter';
 }
+
+//Toggle Link to us section from home page
+(function($){
+    $("#link_to_eya").hide();
+    $("#link_to_us").click(function(){
+        $("#link_to_eya").slideToggle("slow");
+    })
+})(jQuery);

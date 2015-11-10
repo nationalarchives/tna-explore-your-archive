@@ -60,16 +60,16 @@ include('_inc/variables.php');
     <section id="newsletter">
         <div class="container">
             <div class="row">
-
+                <h2 class="hidden-but-accessible">Sign up to The National Archives' newsletter</h2>
                 <div class="col-xs-12 col-sm-6">
                     <p>
                         <?php
                         $result = $_GET['result'];
-                            if($result == 'success') {
-                             echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
-                            } else {
-                                echo get_option('newsletter');
-                            }
+                        if ($result == 'success') {
+                            echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
+                        } else {
+                            echo get_option('newsletter');
+                        }
                         ?>
                     </p>
                 </div>
@@ -131,6 +131,7 @@ include('_inc/variables.php');
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <section id="about">
         <div class="container">
@@ -142,8 +143,30 @@ include('_inc/variables.php');
 
                 ?>
             </div>
-
         </div>
+    </section>
+    <section id="link_to_us">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h2>Link to us</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="link_to_eya">
+        <div class="container">
+            <h2 class="hidden-but-accessible">Link to EYA</h2>
+            <p><?php echo get_option("link_to_us")?></p>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 300px; ">
+                 </div>
+                <div class="col-xs-6 col-sm-8">
+                    <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 728px; ">
+                </div>
+            </div>
+         </div>
     </section>
     <section id="latest-activity">
         <div class="container">

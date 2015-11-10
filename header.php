@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.min.js"></script>
 
-    <!--[if (gte IE 6)&(lte IE 8)]>
-    <script type="text/javascript" src="http://livelb.nationalarchives.gov.uk/wp-content/themes/tna/scripts/selectivizr-min.js"></script>
-    <script type="text/javascript" src="http://livelb.nationalarchives.gov.uk/wp-content/themes/tna/scripts/respond.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/IE8.css" rel="stylesheet">
     <![endif]-->
 
     <title>
@@ -57,8 +56,6 @@
     <!-- Respond.js proxy on external server -->
     <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
 
-    <!-- Stylesheet -->
-    <link href="<?php echo get_template_directory_uri(); ?>/css/style.min.css" rel="stylesheet">
     <!-- Fav Icons -->
     <link rel="apple-touch-icon" sizes="57x57"
           href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon-57x57.png">

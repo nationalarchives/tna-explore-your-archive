@@ -243,7 +243,7 @@ header {
           font-weight:bold;
           color: $EYA-white;
           border: 0;
-          background:$EYA-green;
+          background:$EYA-blue;
           @media (max-width:$EYA-736px-width){
             float:none;
             margin:0 0 10px 0;
@@ -339,7 +339,7 @@ header {
       text-align: center;
       clear: both;
       float: none;
-      display: block;
+      display: none;
       background: $EYA-blue;
       padding: 5px;
       color: $EYA-white !important;
@@ -357,13 +357,10 @@ header {
     margin: 0 auto;
     clear: both;
     float: none;
-    display: block;
+    display: none;
     &:hover {
       color:$EYA-light-blue;
     }
-  }
-  .load_more {
-    display:none;
   }
   .col-md-3 {
     margin:0 0 20px 0;
@@ -524,7 +521,6 @@ header {
     }
   }
 
-  background-color:$EYA-light-grey;
   .facebook {
     width:100%;
     margin:20px 0 0 0;
@@ -564,10 +560,14 @@ header {
   .thumbnail {
     background: $EYA-white;
     height:100%;
+    border:1px solid $EYA-white;
+    &:hover {
+      border:1px solid darken($EYA-light-grey, 10%);
+    }
     .wp-post-image{
       height:166px;
       width:100%;
-      border-bottom:1px solid grey;
+      border-bottom:1px solid $EYA-light-grey;
       @media (max-width:767px){
         height:auto;
 
@@ -873,7 +873,7 @@ footer {
 }
 
 #newsletter {
-  background-color:darken($EYA-light-grey, 4%);
+  background-color:$EYA-light-grey;
   background-image: $EYA-colours-stripe;
   background-position: bottom;
   background-repeat: repeat-x;
@@ -969,5 +969,30 @@ footer {
 
   @media (max-width:$EYA-667px-width) {
     margin-left:14px;
+  }
+}
+
+#link_to_us {
+  background:$EYA-light-grey;
+  h2 {
+    text-align:center;
+    cursor:pointer;
+    background:$EYA-purple;
+    padding:10px 20px;
+    width:150px;
+    color:$EYA-off-white;
+    @include border-radius();
+    font-size:1.175em;
+    @include transition();
+    &:hover {
+      background:$EYA-light-pink;
+    }
+  }
+}
+#link_to_eya{
+  background:darken($EYA-light-grey, 2%);
+  p {
+    font-size: 1.425em;
+    font-family: $EYA-OpenSans;
   }
 }

@@ -6,16 +6,17 @@
 
 get_header();
 
-    //Include Variables
-    include('_inc/variables.php');
+//Include Variables
+include('_inc/variables.php');
 
-    /* Enable feature image for the banner */
-    $frontpage_ID = get_option('page_on_front');
-    $thumb_id = get_post_thumbnail_id( $frontpage_ID);
-    $thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
-    $thumb_url = $thumb_url_array[0];
+/* Enable feature image for the banner */
+$frontpage_ID = get_option('page_on_front');
+$thumb_id = get_post_thumbnail_id($frontpage_ID);
+$thumb_url_array = wp_get_attachment_image_src($thumb_id, '', true);
+$thumb_url = $thumb_url_array[0];
 ?>
-    <section id="banner" role="banner" style="background: url(<?php echo $thumb_url; ?> ) !important; background-size:cover !important; background-repeat:no-repeat; ">
+    <section id="banner" role="banner"
+             style="background: url(<?php echo $thumb_url; ?> ) !important; background-size:cover !important; background-repeat:no-repeat; ">
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
@@ -29,14 +30,14 @@ get_header();
 
                     <?php
                     // Select region query
-                    require( locate_template ( '_inc/select-by-region.php' ) );
+                    require(locate_template('_inc/select-by-region.php'));
 
                     ?>
 
                     <noscript>
                         <button type="submit">Go</button>
                     </noscript>
-                    <div class="clearfix"><br /></div>
+                    <div class="clearfix"><br/></div>
                     <a class="buttonShowAll" href="/">Show all</a>
 
                 </form>
@@ -58,8 +59,8 @@ get_header();
                 <hr/>
                 <?php
 
-                    // Events by category - Wp_query
-                    require( locate_template( '_inc/events-category.php' ) );
+                // Events by category - Wp_query
+                require(locate_template('_inc/events-category.php'));
 
                 ?>
 
@@ -69,16 +70,13 @@ get_header();
     <section id="newsletter">
         <div class="container">
             <div class="row">
-
+                <h2 class="hidden-but-accessible">Sign up to The National Archives' newsletter</h2>
                 <div class="col-xs-12 col-sm-6">
                     <p>
                         <?php
                         $result = $_GET['result'];
-                        if($result == 'success') {
+                        if ($result == 'success') {
                             echo '<strong>Thank you</strong> for signing up for our free monthly enewsletter.';
-                            echo '<script>';
-                            echo 'window.location = "#newsletter";';
-                            echo '</script>';
                         } else {
                             echo get_option('newsletter');
                         }
@@ -108,7 +106,7 @@ get_header();
                         <?php
 
                         // Latest news - Wp_query
-                        require( locate_template( '_inc/latest-news.php') );
+                        require(locate_template('_inc/latest-news.php'));
 
                         ?>
                     </div>
@@ -143,6 +141,7 @@ get_header();
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <section id="about">
         <div class="container">
@@ -154,7 +153,29 @@ get_header();
 
                 ?>
             </div>
-
+        </div>
+    </section>
+    <section id="link_to_us">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h2>Link to us</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="link_to_eya">
+        <div class="container">
+            <h2 class="hidden-but-accessible">Link to EYA</h2>
+            <p><?php echo get_option("link_to_us")?></p>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 300px; ">
+                </div>
+                <div class="col-xs-6 col-sm-8">
+                    <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 728px; ">
+                </div>
+            </div>
         </div>
     </section>
     <section id="latest-activity">

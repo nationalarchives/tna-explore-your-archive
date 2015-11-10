@@ -303,7 +303,7 @@ header {
         font-weight: bold;
         color: #fff;
         border: 0;
-        background: #94B733; }
+        background: #135ea8; }
         @media (max-width: 736px) {
           #banner .wrapper form legend {
             float: none;
@@ -389,7 +389,7 @@ header {
     text-align: center;
     clear: both;
     float: none;
-    display: block;
+    display: none;
     background: #135ea8;
     padding: 5px;
     color: #fff !important;
@@ -409,11 +409,9 @@ header {
     margin: 0 auto;
     clear: both;
     float: none;
-    display: block; }
+    display: none; }
     #events #showLess:hover {
       color: #3c90d1; }
-  #events .load_more {
-    display: none; }
   #events .col-md-3 {
     margin: 0 0 20px 0; }
   @media (max-width: 988px) {
@@ -548,57 +546,58 @@ header {
     font-size: 0.750em;
     text-transform: uppercase; }
 
-#latest-news {
-  background-color: #F7F7F7; }
-  #latest-news .col-md-6 {
-    margin: 0 0 20px 0; }
-    @media (max-width: 988px) {
-      #latest-news .col-md-6 {
-        width: 100%; } }
-  @media (max-width: 766px) {
-    #latest-news .col-xs-6 {
+#latest-news .col-md-6 {
+  margin: 0 0 20px 0; }
+  @media (max-width: 988px) {
+    #latest-news .col-md-6 {
       width: 100%; } }
-  #latest-news .facebook {
+@media (max-width: 766px) {
+  #latest-news .col-xs-6 {
+    width: 100%; } }
+#latest-news .facebook {
+  width: 100%;
+  margin: 20px 0 0 0;
+  height: 262px; }
+  @media (max-width: 736px) {
+    #latest-news .facebook {
+      height: auto; } }
+#latest-news .timeline {
+  max-width: 100%; }
+#latest-news a:hover {
+  text-decoration: none; }
+#latest-news .twitter {
+  width: 100%; }
+#latest-news h3 {
+  color: #C5327F; }
+#latest-news h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.250em;
+  margin: 50px 0 10px 0;
+  font-weight: 500; }
+#latest-news hr {
+  width: 80px;
+  margin: 0 auto;
+  height: 2px;
+  border-color: #cecece;
+  padding: 0 0 20px 0; }
+#latest-news .thumbnail {
+  background: #fff;
+  height: 100%;
+  border: 1px solid #fff; }
+  #latest-news .thumbnail:hover {
+    border: 1px solid #dedede; }
+  #latest-news .thumbnail .wp-post-image {
+    height: 166px;
     width: 100%;
-    margin: 20px 0 0 0;
-    height: 262px; }
-    @media (max-width: 736px) {
-      #latest-news .facebook {
+    border-bottom: 1px solid #F7F7F7; }
+    @media (max-width: 767px) {
+      #latest-news .thumbnail .wp-post-image {
         height: auto; } }
-  #latest-news .timeline {
-    max-width: 100%; }
-  #latest-news a:hover {
-    text-decoration: none; }
-  #latest-news .twitter {
-    width: 100%; }
-  #latest-news h3 {
-    color: #C5327F; }
-  #latest-news h2 {
-    width: 100%;
-    text-align: center;
-    font-size: 2.250em;
-    margin: 50px 0 10px 0;
-    font-weight: 500; }
-  #latest-news hr {
-    width: 80px;
-    margin: 0 auto;
-    height: 2px;
-    border-color: #cecece;
-    padding: 0 0 20px 0; }
-  #latest-news .thumbnail {
-    background: #fff;
-    height: 100%; }
-    #latest-news .thumbnail .wp-post-image {
-      height: 166px;
-      width: 100%;
-      border-bottom: 1px solid grey; }
-      @media (max-width: 767px) {
-        #latest-news .thumbnail .wp-post-image {
-          height: auto; } }
-  #latest-news .caption a {
-    color: #000; }
-    #latest-news .caption a:hover {
-      color: #772367; }
+#latest-news .caption a {
+  color: #000; }
+  #latest-news .caption a:hover {
+    color: #772367; }
 
 #about {
   background: url("../images/pink-pattern.png"); }
@@ -841,7 +840,7 @@ footer {
     color: #fff; }
 
 #newsletter {
-  background-color: #ededed;
+  background-color: #F7F7F7;
   background-image: url("../images/top-c-stripe.png");
   background-position: bottom;
   background-repeat: repeat-x;
@@ -924,3 +923,32 @@ footer {
 @media (max-width: 667px) {
   #twitter-widget-0 {
     margin-left: 14px; } }
+
+#link_to_us {
+  background: #F7F7F7; }
+  #link_to_us h2 {
+    text-align: center;
+    cursor: pointer;
+    background: #772367;
+    padding: 10px 20px;
+    width: 150px;
+    color: #EAEAEA;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 1.175em;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    #link_to_us h2:hover {
+      background: #E14094; }
+
+#link_to_eya {
+  background: #f2f2f2; }
+  #link_to_eya p {
+    font-size: 1.425em;
+    font-family: "Open Sans", sans-serif; }
