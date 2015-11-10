@@ -243,7 +243,7 @@ header {
           font-weight:bold;
           color: $EYA-white;
           border: 0;
-          background:$EYA-green;
+          background:$EYA-blue;
           @media (max-width:$EYA-736px-width){
             float:none;
             margin:0 0 10px 0;
@@ -560,10 +560,14 @@ header {
   .thumbnail {
     background: $EYA-white;
     height:100%;
+    border:1px solid $EYA-white;
+    &:hover {
+      border:1px solid darken($EYA-light-grey, 10%);
+    }
     .wp-post-image{
       height:166px;
       width:100%;
-      border-bottom:1px solid grey;
+      border-bottom:1px solid $EYA-light-grey;
       @media (max-width:767px){
         height:auto;
 
@@ -979,6 +983,10 @@ footer {
     color:$EYA-off-white;
     @include border-radius();
     font-size:1.175em;
+    @include transition();
+    &:hover {
+      background:$EYA-light-pink;
+    }
   }
 }
 #link_to_eya{

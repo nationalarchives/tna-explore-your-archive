@@ -52,11 +52,11 @@ window.addEventListener("orientationchange", function () {
 })(jQuery);
 
 // Add the hash tag newsletter after a user subscribe
-if(!!window.location.search && !!window.location.search.indexOf('result=success')) {
+if(!!window.location.search && window.location.search.indexOf('result=success') > -1) {
     window.location.hash = 'newsletter';
 }
 
-//Toggle Link to us
+//Toggle Link to us section from home page
 (function($){
     $("#link_to_eya").hide();
     $("#link_to_us").click(function(){

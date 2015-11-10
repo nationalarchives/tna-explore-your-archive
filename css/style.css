@@ -303,7 +303,7 @@ header {
         font-weight: bold;
         color: #fff;
         border: 0;
-        background: #94B733; }
+        background: #135ea8; }
         @media (max-width: 736px) {
           #banner .wrapper form legend {
             float: none;
@@ -583,11 +583,14 @@ header {
   padding: 0 0 20px 0; }
 #latest-news .thumbnail {
   background: #fff;
-  height: 100%; }
+  height: 100%;
+  border: 1px solid #fff; }
+  #latest-news .thumbnail:hover {
+    border: 1px solid #dedede; }
   #latest-news .thumbnail .wp-post-image {
     height: 166px;
     width: 100%;
-    border-bottom: 1px solid grey; }
+    border-bottom: 1px solid #F7F7F7; }
     @media (max-width: 767px) {
       #latest-news .thumbnail .wp-post-image {
         height: auto; } }
@@ -935,7 +938,14 @@ footer {
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
-    font-size: 1.175em; }
+    font-size: 1.175em;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    #link_to_us h2:hover {
+      background: #E14094; }
 
 #link_to_eya {
   background: #f2f2f2; }
