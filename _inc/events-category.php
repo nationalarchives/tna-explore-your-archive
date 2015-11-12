@@ -24,7 +24,7 @@ if (have_posts()) {
                     if ($featured !== '') { ?>
                         <span class="featured">FEATURED</span>
                     <?php } ?>
-                    <span class="price">FREE</span>
+                    <span class="price"><?php echo $price ?></span>
 
                     <div class="caption">
                         <h3><?php the_title(); ?></h3>
