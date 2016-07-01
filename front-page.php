@@ -12,7 +12,7 @@ include('_inc/variables.php');
 ?>
     <section id="banner" role="banner"
              style="background: url(<?php echo $thumb_url; ?> ) !important; background-size:cover !important; background-repeat:no-repeat;"
-        >
+    >
         <div class="container">
             <div class="wrapper">
                 <strong><?php echo get_option('eya_event_date'); ?></strong>
@@ -20,21 +20,27 @@ include('_inc/variables.php');
                 <h1><?php echo get_option('eya_title'); ?></h1>
 
                 <p><?php echo get_option('eya_desc'); ?> <a class="page-scroll" href="#about">Read more</a></p>
+                <?php
+                $region = filter_input(INPUT_GET, 'region', FILTER_SANITIZE_SPECIAL_CHARS);
+                ?>
 
-                <form id="category-select" class="category-select" action="<?php echo esc_url(home_url('/')); ?>"
-                      method="get">
+                <?php if (count($countevents) > 0) : ?>
+                    <form name="region" id="category-select" class="category-select" method="get">
 
-                    <?php
-                    // Select region query
-                    require(locate_template('_inc/select-by-region.php'));
+                        <?php
+                        // Select region query
+                        require(locate_template('_inc/select-by-region.php'));
 
-                    ?>
+                        ?>
 
-                    <noscript>
-                        <button type="submit">Go</button>
-                    </noscript>
+                        <noscript>
+                            <button type="submit">Go</button>
+                        </noscript>
 
-                </form>
+                    </form>
+
+                <?php endif; ?>
+
             </div>
         </div>
     </section>
@@ -42,9 +48,44 @@ include('_inc/variables.php');
     <section id="events">
         <div class="container">
             <div id="index-events" class="row">
-                <h2><?php echo get_option('eya_headline_section_one'); ?></h2>
+                <h2>
+                    <?php
+                    /* Check the category's slug and assign it's category name to the $cat variable */
+                    foreach ($count_eventarg as $category) : ?>
+                        <?php if($region == $category->slug) : ?>
+                            <?php $cat = $category->cat_name; // This variable is assigned to the wp_query in events_by_date and events_by_featured pages?>
+                            <?php $cat_slug = $category->cat_slug; // This variable is assigned to the wp_query in events_by_date and events_by_featured pages?>
+                        <?php endif; ?>
+                    <?php endforeach;
+
+                    $count_arg = array(
+                        'numberposts' => -1,
+                        'category_name' => $cat,
+                        'date_query' => array(
+                            array(
+                                'year'  => $current_year
+                            ),
+                        ),
+                    );
+                    /* Get the categories with the right parameters */
+                    $count_eventarg = get_posts($count_arg);
+                    
+                    if ($region != '') {
+
+                        if ( count($count_eventarg) != 0 ) {
+                            echo 'Events in ' .$cat;
+                        } else {
+                            echo 'No events in ' .$cat;
+                        }
+
+                    } else {
+                        echo get_option('eya_headline_section_one');
+                    } ?>
+
+                </h2>
                 <hr/>
                 <?php
+
                 // Events by Featured category - Wp_query
                 require(locate_template('_inc/events-by-featured.php'));
 
@@ -53,8 +94,11 @@ include('_inc/variables.php');
 
                 ?>
             </div>
-            <div id="loadMore">Show more</div>
-            <div id="showLess">Show fewer</div>
+            <?php if (count($countevents) >= 8) : ?>
+                <div id="loadMore">Show all</div>
+                <div id="showLess">Show fewer</div>
+            <?php endif; ?>
+
         </div>
     </section>
     <section id="newsletter">
@@ -161,12 +205,12 @@ include('_inc/variables.php');
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://www.exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-300X300.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 300px; ">
-                 </div>
+                </div>
                 <div class="col-xs-6 col-sm-8">
                     <a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br><input type="text" value='<a href="http://www.exploreyourarchive.org" target="_blank"><img src="http://exploreyourarchive.org/wp-content/uploads/sites/11/2015/11/EYA-Banner-728X90.jpg" border="0"></a><br>' readonly onClick="javascript:this.focus();this.select();" style="width: 728px; ">
                 </div>
             </div>
-         </div>
+        </div>
     </section>
     <section id="latest-activity">
         <div class="container">

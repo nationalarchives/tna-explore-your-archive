@@ -18,6 +18,18 @@
     $banner_image_id = get_post_thumbnail_id($post_to_use->ID);
     $link = get_post_meta($post->ID, 'custom_web_url', true);
     $date = new DateTime($start_date);
+    $current_year = date('Y');
+    $count_eventsargs = array(
+        'numberposts' => -1,
+        'date_query' => array(
+            array(
+                'year'  => $current_year
+            ),
+        ),
+    );
+    $countevents = get_posts($count_eventsargs);
+
+
 
     /* Enable feature image for the banner */
     $thumb_id = get_post_thumbnail_id();

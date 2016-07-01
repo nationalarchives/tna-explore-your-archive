@@ -1,29 +1,28 @@
 <?php
 /**
- * Events by date on home page
+ * Archives page
  * TNA Web Team
  */
 
-
+$featured_category_id = get_cat_ID('featured');
 
 $args2 = array(
     'post_type' => 'post',
-    'cat' => -$featured_category_id, //Display all posts exclude this category.
-    'meta_key' => $custom_end_date,
-    'meta_value' => $current_date,
+    'meta_value' =>  -1,
     'meta_compare' => '>=',
-    'orderby' => 'menu_order date',
-    'category_name' => $cat,
-    'posts_per_page' => -1,
     'date_query' => array(
         array(
-            'year'  => $current_year
+            'year'  => $current_year -1
         ),
     ),
+    'orderby' => 'menu_order date',
+    'posts_per_page' => -1,
+
 );
 
 $query = new WP_query($args2);
 
+// The Loop
 if ($query->have_posts()) {
     while ($query->have_posts()) {
         $query->the_post();
@@ -47,7 +46,7 @@ if ($query->have_posts()) {
 
                         <p><i class="fa fa-map-marker"></i>
                             <?php foreach ((get_the_category()) as $category) { ?>
-                                    <?php echo $category->cat_name . ' '; ?>
+                                <?php echo $category->cat_name . ' '; ?>
                             <?php } ?>
                         </p>
 
@@ -69,7 +68,7 @@ if ($query->have_posts()) {
     <?php } ?>
 
 <?php } else {
-    /*echo '<p>No Events Found</p>';*/
+    echo '<p>No Events Found</p>';
 }
 // Restore original Post Data
 wp_reset_postdata();

@@ -1,5 +1,5 @@
 /* EYA - Imports */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,300italic,300,800italic);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,300italic,300,800italic');
 @import 'reset';
 @import 'variables';
 @import 'mixins';
@@ -331,7 +331,13 @@ header {
       }
     }
 }
-
+#banner_inner {
+  @extend #banner;
+  height:150px;
+  .nav {
+    display:none;
+  }
+}
 #events {
   #loadMore {
     cursor:pointer;

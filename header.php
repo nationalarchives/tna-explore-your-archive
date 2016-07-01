@@ -126,7 +126,7 @@
                 <a href="#eya" class="box-shadow-menu">
                     Menu
                 </a>
-
+                <?php if (is_front_page() ) :?>
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <!-- Navigation -->
                     <nav class="navbar-fixed-Top">
@@ -152,6 +152,7 @@
                         <!-- /.navbar-collapse -->
                     </nav>
                 </div>
+                <?php endif; ?>
                 <div class="col-xs-12 col-md-12 mobileNav">
                     <!-- Navigation -->
                     <nav class="navbar-fixed-Top">
