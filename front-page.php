@@ -24,7 +24,7 @@ include('_inc/variables.php');
                 $region = filter_input(INPUT_GET, 'region', FILTER_SANITIZE_SPECIAL_CHARS);
                 ?>
 
-                <?php if (count($countevents) > 0) : ?>
+                <?php if (count($countevents) > 1) : ?>
                     <form name="region" id="category-select" class="category-select" method="get">
 
                         <?php
