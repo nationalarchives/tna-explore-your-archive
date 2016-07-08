@@ -254,6 +254,8 @@ header {
     padding: 5px;
     color: #fff !important;
     margin: 0 auto;
+    z-index: 888888;
+    position: relative;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -ms-border-radius: 20px;

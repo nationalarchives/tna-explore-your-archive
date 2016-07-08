@@ -13,9 +13,9 @@ include('_inc/variables.php');
     >
         <div class="container">
             <div class="wrapper">
-                <h1><?php echo get_option('eya_archive_title'); ?></h1>
+                <!--<h1><?php /*echo get_option('eya_archive_title'); */?></h1>-->
                     <div class="clearfix"><br/></div>
-                    <a class="buttonShowAll" href="/">Home</a>
+                    <a class="buttonShowAll" href="/"><?php echo get_option('eya_archive_title'); ?></a>
             </div>
         </div>
     </section>

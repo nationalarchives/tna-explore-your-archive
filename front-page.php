@@ -69,7 +69,7 @@ include('_inc/variables.php');
                     );
                     /* Get the categories with the right parameters */
                     $count_eventarg = get_posts($count_arg);
-                    
+
                     if ($region != '') {
 
                         if ( count($count_eventarg) != 0 ) {
