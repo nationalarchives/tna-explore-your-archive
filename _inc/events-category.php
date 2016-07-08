@@ -4,6 +4,7 @@
  * TNA Web Team
  */
 
+
 // The Loop
 if (have_posts()) {
     while (have_posts()) {

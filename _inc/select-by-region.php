@@ -4,26 +4,41 @@
  * TNA Web Team
  */
 
-$featured_category_id = get_cat_ID('featured');
-$news_category_id = get_cat_ID('news');
-$uncategorized_category_id = get_cat_ID('uncategorized');
+//Include Variables
+include('variables.php');
 
-$args = array(
-    'show_option_none' => __('Region'),
-    'show_count' => 1,
-    'orderby' => 'name',
-    'echo' => 0,
-    'hide_empty' => 1,
-    'exclude' => array($featured_category_id, $news_category_id, $uncategorized_category_id),
-    'selected' => 0,
-    'tab_index' => 0,
-    'hide_if_empty' => false,
-    'option_none_value' => -1,
-);
 ?>
+<fieldset><legend>Select</legend>
+<select name="region" class='chosen-select' onchange="this.form.submit()">
+    <option value="region">Region</option>
+    <?php
+        /* Variables */
+        $region = $_GET['region'];
+        $featured_category_id = get_cat_ID('featured');
+        $news_category_id = get_cat_ID('news');
 
-<?php $select = wp_dropdown_categories($args); ?>
-<?php $replace = "<fieldset><legend>Select</legend><select class='chosen-select'$1 onchange='return this.form.submit()'></fieldset>"; ?>
-<?php $select = preg_replace('#<select([^>]*)>#', $replace, $select); ?>
+        /* Set the arguments for categories */
+        $args2 = array(
+            'exclude' => array($news_category_id,$featured_category_id), //Display all posts exclude these categories
+        );
 
-<?php echo $select; ?>
+        /* Get the categories with the right parameters */
+        $categories = get_categories($args2);
+
+        /* Check the category's slug and assign it's category name to the $cat variable */
+        foreach ($categories as $category) : ?>
+            <?php if($region == $category->slug) : ?>
+                <?php $cat = $category->cat_name; // This variable is assigned to the wp_query in events_by_date and events_by_featured pages?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+    <?php foreach ($categories as $category) {  // Populate the dropdown list with the right categories ?>
+            <option value="<?php echo $category->slug; ?>"><?php echo $category->cat_name?></option>
+    <?php } ?>
+</select>
+
+<!-- Display Show all button if REGION is not empty -->
+<?php if($region != '') :?>
+    <div class="clearfix"><br/></div>
+    <a class="buttonShowAll" href="/">Show all</a>
+<?php endif; ?>

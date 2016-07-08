@@ -43,7 +43,8 @@ window.addEventListener("orientationchange", function () {
     $('.row .load_more:lt(' + x + ')').show();
     $('#loadMore').click(function () {
         x = (x + 4 <= size_li) ? x + 4 : size_li;
-        $('.row .load_more:lt(' + x + ')').fadeIn("slow");
+        //$('.row .load_more:lt(' + x + ')').fadeIn("slow");
+        $('.row .load_more').fadeIn("slow");
     });
     $('#showLess').click(function () {
         x = (x - 4 < 4) ? 4 : x - 4;

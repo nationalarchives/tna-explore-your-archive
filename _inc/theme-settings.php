@@ -25,6 +25,7 @@ function register_my_fields()
     register_setting('logo_options_group', "footer_copyright");
     register_setting('logo_options_group', "newsletter");
     register_setting('logo_options_group', "link_to_us");
+    register_setting('logo_options_group', "eya_archive_title");
 }
 
 add_action('admin_init', 'register_my_fields');
@@ -81,6 +82,7 @@ function add_options_to_page()
     add_settings_field('footer_link_one', 'Footer Link One', 'display_eya_fields');
     add_settings_field('footer_link_one_description', 'Footer Link One Description', 'display_eya_fields');
     add_settings_field('footer_copyright', 'Footer Copyright', 'display_eya_fields');
+    add_settings_field('eya_archive_title', 'Archive title', 'display_eya_fields');
 
 }
 
@@ -127,6 +129,12 @@ function display_eya_fields()
         <div class="col-xs-6 col-sm-2"><strong>Description:</strong></div>
         <div class="col-xs-6 col-sm-3"><textarea type="text" name="eya_desc"
                                                  id="eya_desc"><?php echo get_option('eya_desc'); ?></textarea></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-2"><strong>Archive page title:</strong></div>
+        <div class="col-xs-6 col-sm-3"><input type="text" name="eya_archive_title" id="eya_archive_title"
+                                              value="<?php echo get_option('eya_archive_title'); ?>"/></div>
     </div>
 
     <div class="row">

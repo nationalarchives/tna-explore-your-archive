@@ -15,7 +15,13 @@ $args = array(
     'meta_key' => $custom_end_date,
     'meta_value' => $current_date,
     'meta_compare' => '>=',
+    'category_name' => $cat,
     'posts_per_page' => 4,
+    'date_query' => array(
+        array(
+            'year'  => $current_year
+        ),
+    ),
 );
 
 $query = new WP_Query($args);

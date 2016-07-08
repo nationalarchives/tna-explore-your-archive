@@ -1,5 +1,5 @@
 /* EYA - Imports */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,300italic,300,800italic);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,300italic,300,800italic");
 html, body, div, span, applet, object, iframe, .iframe-respo #map_canvas,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -239,12 +239,12 @@ header {
       margin: 0;
       padding: 0; } }
 
-#banner {
+#banner, #banner_inner {
   background-size: cover;
   height: 414px;
   text-align: center;
   color: #fff; }
-  #banner .buttonShowAll {
+  #banner .buttonShowAll, #banner_inner .buttonShowAll {
     width: 100px;
     text-align: center;
     clear: both;
@@ -254,44 +254,50 @@ header {
     padding: 5px;
     color: #fff !important;
     margin: 0 auto;
+    z-index: 888888;
+    position: relative;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     border-radius: 20px; }
-    #banner .buttonShowAll:hover {
+    #banner .buttonShowAll:hover, #banner_inner .buttonShowAll:hover {
       background: #3c90d1; }
   @media (max-width: 768px) {
-    #banner .container {
+    #banner .container, #banner_inner .container {
       width: 100%;
       margin: 0;
       padding: 0; } }
   @media (max-width: 768px) {
-    #banner {
+    #banner, #banner_inner {
       height: auto;
       background-repeat: repeat-x;
       background-color: #772367; } }
-  #banner .wrapper {
+  #banner .wrapper, #banner_inner .wrapper {
     width: 700px;
     margin: 0 auto;
     overflow: visible; }
     @media (max-width: 768px) {
-      #banner .wrapper {
+      #banner .wrapper, #banner_inner .wrapper {
         width: 100%; } }
-    #banner .wrapper form {
+    #banner .wrapper form, #banner_inner .wrapper form {
       z-index: 39; }
-      #banner .wrapper form legend,
+      #banner .wrapper form legend, #banner_inner .wrapper form legend,
       #banner .wrapper form select,
-      #banner .wrapper form fieldset {
+      #banner_inner .wrapper form select,
+      #banner .wrapper form fieldset,
+      #banner_inner .wrapper form fieldset {
         display: inline-block; }
         @media (max-width: 736px) {
-          #banner .wrapper form legend,
+          #banner .wrapper form legend, #banner_inner .wrapper form legend,
           #banner .wrapper form select,
-          #banner .wrapper form fieldset {
+          #banner_inner .wrapper form select,
+          #banner .wrapper form fieldset,
+          #banner_inner .wrapper form fieldset {
             display: block;
             width: 100%;
             margin: 0 0 10px 0; } }
-      #banner .wrapper form legend {
+      #banner .wrapper form legend, #banner_inner .wrapper form legend {
         display: inline-block;
         width: auto;
         padding: 10px 15px;
@@ -305,12 +311,12 @@ header {
         border: 0;
         background: #135ea8; }
         @media (max-width: 736px) {
-          #banner .wrapper form legend {
+          #banner .wrapper form legend, #banner_inner .wrapper form legend {
             float: none;
             margin: 0 0 10px 0;
             width: 300px;
             display: block; } }
-      #banner .wrapper form button {
+      #banner .wrapper form button, #banner_inner .wrapper form button {
         background: #94B733;
         height: 50px;
         color: #fff;
@@ -327,25 +333,25 @@ header {
         -ms-transition: all 0.2s ease-in-out;
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
-        #banner .wrapper form button:hover {
+        #banner .wrapper form button:hover, #banner_inner .wrapper form button:hover {
           background: #A9CF3F; }
         @media (max-width: 736px) {
-          #banner .wrapper form button {
+          #banner .wrapper form button, #banner_inner .wrapper form button {
             float: none;
             width: 300px; } }
-    #banner .wrapper h1 {
+    #banner .wrapper h1, #banner_inner .wrapper h1 {
       font-size: 4.375em;
       font-weight: bold; }
       @media (max-width: 600px) {
-        #banner .wrapper h1 {
+        #banner .wrapper h1, #banner_inner .wrapper h1 {
           font-size: 2em; } }
-    #banner .wrapper a {
+    #banner .wrapper a, #banner_inner .wrapper a {
       color: #C5327F;
       text-decoration: none; }
-      #banner .wrapper a:hover {
+      #banner .wrapper a:hover, #banner_inner .wrapper a:hover {
         color: #772367;
         text-decoration: none; }
-    #banner .wrapper strong {
+    #banner .wrapper strong, #banner_inner .wrapper strong {
       margin: 70px 45px 0 0;
       display: block;
       width: 100%;
@@ -353,33 +359,40 @@ header {
       float: right;
       font-size: 1.125em;
       font-weight: bold; }
-    #banner .wrapper p {
+    #banner .wrapper p, #banner_inner .wrapper p {
       padding: 0 20px;
       margin: 0 0 32px; }
-    #banner .wrapper .select2,
-    #banner .wrapper .chosen-select {
+    #banner .wrapper .select2, #banner_inner .wrapper .select2,
+    #banner .wrapper .chosen-select,
+    #banner_inner .wrapper .chosen-select {
       width: 200px; }
       @media (max-width: 600px) {
-        #banner .wrapper .select2,
-        #banner .wrapper .chosen-select {
+        #banner .wrapper .select2, #banner_inner .wrapper .select2,
+        #banner .wrapper .chosen-select,
+        #banner_inner .wrapper .chosen-select {
           width: 300px !important; } }
-    #banner .wrapper .select2-container .select2-selection--single {
+    #banner .wrapper .select2-container .select2-selection--single, #banner_inner .wrapper .select2-container .select2-selection--single {
       height: 50px; }
-    #banner .wrapper .select2-container--default .select2-selection--single {
+    #banner .wrapper .select2-container--default .select2-selection--single, #banner_inner .wrapper .select2-container--default .select2-selection--single {
       border-radius: 2px 7px 7px 2px; }
-      #banner .wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
+      #banner .wrapper .select2-container--default .select2-selection--single .select2-selection__rendered, #banner_inner .wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
         line-height: 50px;
         color: #4C4C4C;
         font-weight: bold;
         text-align: left;
         font-size: 1.125em; }
-      #banner .wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
+      #banner .wrapper .select2-container--default .select2-selection--single .select2-selection__arrow, #banner_inner .wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
         height: 26px;
         position: absolute;
         top: 13px;
         right: 11px;
         width: 27px;
         background: #EAEAEA; }
+
+#banner_inner {
+  height: 150px; }
+  #banner_inner .nav {
+    display: none; }
 
 #events {
   font-family: "Open Sans", sans-serif; }
