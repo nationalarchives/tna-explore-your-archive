@@ -557,7 +557,11 @@ header {
     z-index: 10;
     color: #fff;
     font-size: 0.750em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    height: 28px; }
 
 #latest-news .col-md-6 {
   margin: 0 0 20px 0; }
@@ -637,6 +641,10 @@ header {
     height: 2px;
     border-color: #cecece;
     padding: 0 0 20px 0; }
+  #about a {
+    color: #000;
+    background: #fff;
+    border-radius: 3px; }
 
 #latest-activity {
   color: #fff; }
@@ -811,7 +819,9 @@ footer {
       line-height: 90px;
       font-size: 2em;
       color: #fff;
-      background: #C5327F; }
+      background: #C5327F;
+      height: 120px;
+      overflow: hidden; }
       @media (max-width: 1217px) {
         #event ul li:nth-child(4) {
           line-height: 110px; } }
@@ -965,3 +975,8 @@ footer {
   #link_to_eya p {
     font-size: 1.425em;
     font-family: "Open Sans", sans-serif; }
+
+a[href="#about"] {
+  background: #EAEAEA;
+  padding: 5px;
+  border-radius: 3px; }
