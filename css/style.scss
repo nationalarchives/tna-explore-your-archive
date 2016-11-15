@@ -1023,3 +1023,21 @@ a[href="#about"] {
   padding:5px;
   border-radius: 3px;
 }
+
+.news-internal {
+
+  .thumbnail {
+    display:inline-block;
+    p{
+      float:none;
+      display:inline-block;
+      color:$EYA-black !important;
+      a{
+        color:$EYA-black;
+      }
+    }
+    h3{
+      margin:0;
+    }
+  }
+}

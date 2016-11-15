@@ -26,7 +26,7 @@ $news = new WP_Query($args);
     <?php while ($news->have_posts()) : $news->the_post(); ?>
         <?php $news_field = get_post_meta($post->ID, 'news', true) ?>
         <div class="col-sm-6 col-md-6">
-            <?php if ($news_field && '' != $news_field) : ?>
+            <?php if ($news_field && '' != $news_field && $news_field !== '#') : ?>
                 <a href="<?php echo $news_field ?>" target="_blank" title="<?php the_title(); ?>">
                     <div class="thumbnail">
                         <?php if (has_post_thumbnail()) : ?>
@@ -42,7 +42,23 @@ $news = new WP_Query($args);
                         </div>
                     </div>
                 </a>
-            <?php endif; ?>
+            <?php else :?>
+                <a href="<?php echo get_permalink() ?>" title="<?php the_title(); ?>">
+                    <div class="thumbnail">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <?php echo the_post_thumbnail('news-thumb'); ?>
+                        <?php else: ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.png" alt="Explore Your Archive">
+                        <?php endif; ?>
+                        <div class="caption">
+                            <h3><?php the_title(); ?></h3>
+                            <span><?php the_time('F jS, Y') ?></span>
+
+                            <p><?php echo excerpt(25); ?> </p>
+                        </div>
+                    </div>
+                </a>
+            <?php endif;?>
         </div>
     <?php endwhile; ?>
     <!-- end of the loop -->

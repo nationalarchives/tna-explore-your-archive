@@ -980,3 +980,14 @@ a[href="#about"] {
   background: #EAEAEA;
   padding: 5px;
   border-radius: 3px; }
+
+.news-internal .thumbnail {
+  display: inline-block; }
+  .news-internal .thumbnail p {
+    float: none;
+    display: inline-block;
+    color: #000 !important; }
+    .news-internal .thumbnail p a {
+      color: #000; }
+  .news-internal .thumbnail h3 {
+    margin: 0; }
