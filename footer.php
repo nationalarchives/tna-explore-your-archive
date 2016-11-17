@@ -20,7 +20,7 @@
             <div class="col-xs-6 col-sm-3">
                 <a class="ara" href="http://www.archives.org.uk/" target="_blank"><img
                         src="<?php bloginfo('stylesheet_directory'); ?>/images/ara.jpg"
-                        alt="Archvies & Records Association" class="ara-logo"></a>
+                        alt="Archvies & Records Association" width="260"></a>
             </div>
         </div>
     </div>
