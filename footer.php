@@ -19,8 +19,8 @@
             <div class="clearfix visible-xs-block"></div>
             <div class="col-xs-6 col-sm-3">
                 <a class="ara" href="http://www.archives.org.uk/" target="_blank"><img
-                        src="<?php bloginfo('stylesheet_directory'); ?>/images/ara.png"
-                        alt="Archvies & Records Association"></a>
+                        src="<?php bloginfo('stylesheet_directory'); ?>/images/ara.jpg"
+                        alt="Archvies & Records Association" class="ara-logo"></a>
             </div>
         </div>
     </div>
