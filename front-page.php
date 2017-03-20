@@ -50,6 +50,9 @@ include('_inc/variables.php');
             <div id="index-events" class="row">
                 <h2>
                     <?php
+                    /* Get the categories with the right parameters */
+                    $count_eventarg = get_posts($count_arg);
+
                     /* Check the category's slug and assign it's category name to the $cat variable */
                     foreach ($count_eventarg as $category) : ?>
                         <?php if($region == $category->slug) : ?>
@@ -67,8 +70,7 @@ include('_inc/variables.php');
                             ),
                         ),
                     );
-                    /* Get the categories with the right parameters */
-                    $count_eventarg = get_posts($count_arg);
+
 
                     if ($region != '') {
 

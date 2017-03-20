@@ -60,7 +60,7 @@ add_action('init', 'create_events_cpt');
 
 /** Add Category to Latest Activity */
 add_action('init', 'add_category_taxonomy_to_latest_activity');
-function add_category_taxonomy_to_online_exhibitions()
+function add_category_taxonomy_to_latest_activity()
 {
     register_taxonomy_for_object_type('category', 'latest-activity');
 }

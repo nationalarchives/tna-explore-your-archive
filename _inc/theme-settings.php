@@ -4,7 +4,6 @@
  * TNA Web Team
  */
 
-add_action('admin_enqueue_scripts', 'options_enqueue_scripts');
 
 function register_my_fields()
 {
@@ -66,23 +65,23 @@ function add_options_to_page()
         'logo_options_group');
     $args = array(); // pass arguments to add_settings_array to use in fields
     add_settings_field('logo_url', '', 'logo_upload_url', 'logo_options_group', 'custom_logo', $args);
-    add_settings_field('eya_event_date,', 'EYA event date', 'display_eya_fields');
-    add_settings_field('eya_title', 'EYA title', 'display_eya_fields');
-    add_settings_field('eya_desc', 'EYA description', 'display_eya_fields');
-    add_settings_field('eya_headline_section_one', 'EYA headline one', 'display_eya_fields');
-    add_settings_field('eya_headline_section_two', 'EYA headline two', 'display_eya_fields');
-    add_settings_field('eya_headline_section_three', 'EYA headline three', 'display_eya_fields');
-    add_settings_field('eya_headline_section_four', 'EYA headline four', 'display_eya_fields');
-    add_settings_field('twitter_url', 'Twitter Profile Url', 'display_eya_fields');
-    add_settings_field('facebook_url', 'Facebook Profile Url', 'display_eya_fields');
-    add_settings_field('pinterest_url', 'Pinterest Profile Url', 'display_eya_fields');
-    add_settings_field('newsletter', 'Newsletter', 'display_eya_fields');
-    add_settings_field('link_to_us', 'Link to us', 'display_eya_fields');
-    add_settings_field('footer_info', 'Footer Information', 'display_eya_fields');
-    add_settings_field('footer_link_one', 'Footer Link One', 'display_eya_fields');
-    add_settings_field('footer_link_one_description', 'Footer Link One Description', 'display_eya_fields');
-    add_settings_field('footer_copyright', 'Footer Copyright', 'display_eya_fields');
-    add_settings_field('eya_archive_title', 'Archive title', 'display_eya_fields');
+    add_settings_field('eya_event_date,', 'EYA event date', 'display_eya_fields','');
+    add_settings_field('eya_title', 'EYA title', 'display_eya_fields','');
+    add_settings_field('eya_desc', 'EYA description', 'display_eya_fields','');
+    add_settings_field('eya_headline_section_one', 'EYA headline one', 'display_eya_fields','');
+    add_settings_field('eya_headline_section_two', 'EYA headline two', 'display_eya_fields','');
+    add_settings_field('eya_headline_section_three', 'EYA headline three', 'display_eya_fields','');
+    add_settings_field('eya_headline_section_four', 'EYA headline four', 'display_eya_fields','');
+    add_settings_field('twitter_url', 'Twitter Profile Url', 'display_eya_fields','');
+    add_settings_field('facebook_url', 'Facebook Profile Url', 'display_eya_fields','');
+    add_settings_field('pinterest_url', 'Pinterest Profile Url', 'display_eya_fields','');
+    add_settings_field('newsletter', 'Newsletter', 'display_eya_fields','');
+    add_settings_field('link_to_us', 'Link to us', 'display_eya_fields','');
+    add_settings_field('footer_info', 'Footer Information', 'display_eya_fields','');
+    add_settings_field('footer_link_one', 'Footer Link One', 'display_eya_fields','');
+    add_settings_field('footer_link_one_description', 'Footer Link One Description', 'display_eya_fields','');
+    add_settings_field('footer_copyright', 'Footer Copyright', 'display_eya_fields','');
+    add_settings_field('eya_archive_title', 'Archive title', 'display_eya_fields','');
 
 }
 
