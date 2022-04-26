@@ -1,6 +1,3 @@
-// Drop down style
-jQuery('.chosen-select').select2();
-
 // Mobile nav drop down
 jQuery(".mobileNav .nav").hide();
 jQuery(".box-shadow-menu").click(function () {
